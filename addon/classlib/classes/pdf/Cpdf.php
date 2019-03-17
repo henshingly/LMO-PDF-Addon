@@ -2,7 +2,7 @@
 
 // include_once 'include/TTFhelper.php';
 // Relative Pfade führten zu Problemen. 28.04.2017 Henshingly
-include_once (PATH_TO_ADDONDIR.'/classlib/classes/pdf/include/TTFhelper.php';
+include_once (PATH_TO_ADDONDIR.'/classlib/classes/pdf/include/TTFhelper.php');
 
  /**
   * Create pdf documents without additional modules
