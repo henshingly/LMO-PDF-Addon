@@ -40,6 +40,10 @@ Ich muss außerdem zugeben das ich nicht den LMO 4.0.2a aus dem Download genomme
 1<Changelog>
 
 
+3<3.0.4>
+  17.03.2019
+  - Dateiupdate der R&OS Klasse von 0.12.41 -> 0.12.49
+
 3<3.0.3>
   03.08.2017
   - Dateiupdate der R&OS Klasse von 0.12.40 -> 0.12.41

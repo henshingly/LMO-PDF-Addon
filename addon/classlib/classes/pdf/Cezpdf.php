@@ -369,30 +369,30 @@ class Cezpdf extends Cpdf
                     }
                     break;
                 case 'image':
-                    $ypos = 0;
-                    if ($this->ezBackground['repeat'] == 1) {
-                        $ypos = $this->ezBackground['ypos'];
-                    }
+                    $ypos = $this->ezBackground['ypos'];
+                    $xpos = $this->ezBackground['xpos'];
 
-                    $xpos = 0;
+                    if ($this->ezBackground['repeat'] == 1) {
+                        $xpos = 0;
+                    }
+                    
                     if ($this->ezBackground['repeat'] == 2) {
-                        $xpos = $this->ezBackground['xpos'];
+                        $ypos = 0;
                     }
 
                     $this->addBackgroundImage($xpos, $ypos);
 
                     if ($this->ezBackground['repeat'] & 1) { // repeat-x
                         $numX = ceil($this->ez['pageWidth'] / $this->ezBackground['width']);
-                        for ($i = 1; $i <= $numX; ++$i) {
+                        for ($i = 0; $i < $numX; ++$i) {
                             $xpos = ($this->ezBackground['width'] * $i);
                             $this->addBackgroundImage($xpos, $ypos);
                         }
                     }
 
-                    $xpos = 0;
                     if ($this->ezBackground['repeat'] & 2) { // repeat-y
                         $numY = ceil($this->ez['pageHeight'] / $this->ezBackground['height']);
-                        for ($i = 1; $i <= $numY; ++$i) {
+                        for ($i = 0; $i < $numY; ++$i) {
                             $ypos = ($this->ezBackground['height'] * $i);
                             $this->addBackgroundImage($xpos, $ypos);
                         }
@@ -402,9 +402,9 @@ class Cezpdf extends Cpdf
                         $numX = ceil($this->ez['pageWidth'] / $this->ezBackground['width']);
                         $numY = ceil($this->ez['pageHeight'] / $this->ezBackground['height']);
 
-                        for ($i = 1; $i <= $numX; ++$i) {
+                        for ($i = 0; $i < $numX; ++$i) {
                             $xpos = ($this->ezBackground['width'] * $i);
-                            for ($j = 1; $j <= $numY; ++$j) {
+                            for ($j = 0; $j < $numY; ++$j) {
                                 $ypos = ($this->ezBackground['height'] * $j);
                                 $this->addBackgroundImage($xpos, $ypos);
                             }
@@ -671,7 +671,7 @@ class Cezpdf extends Cpdf
      *
      * @return int count of ez['pageNumbering']
      */
-    public function ezStartPageNumbers($x, $y, $size, $pos = 'left', $pattern = '{PAGENUM} of {TOTALPAGENUM}', $num = '')
+    public function ezStartPageNumbers($x, $y, $size, $pos = 'left', $pattern = '{PAGENUM} of {TOTALPAGENUM}', $num = 1)
     {
         if (!$pos || !strlen($pos)) {
             $pos = 'left';
@@ -860,6 +860,10 @@ class Cezpdf extends Cpdf
                         switch ($info['pos']) {
                             case 'left':
                                 $this->addText($info['x'], $info['y'], $info['size'], $pat);
+                                break;
+                            case 'center':
+                                $w = $this->getTextWidth($info['size'], $pat);
+                                $this->addText($info['x'] - ($w / 2), $info['y'], $info['size'], $pat);
                                 break;
                             default:
                                 $w = $this->getTextWidth($info['size'], $pat);
@@ -1123,15 +1127,11 @@ class Cezpdf extends Cpdf
 
         if (!is_array($cols)) {
             // take the columns from the first row of the data set
-            reset($data);
-            list($k, $v) = each($data);
-            if (!is_array($v)) {
+            $first = array_keys($data[0]);
+            if (!is_array($first)) {
                 return;
             }
-            $cols = array();
-            foreach ($v as $k1 => $v1) {
-                $cols[$k1] = $k1;
-            }
+            $cols = array_combine($first, $first);
         }
 
         if (!is_array($options)) {
@@ -1149,7 +1149,7 @@ class Cezpdf extends Cpdf
             'width' => 0, 'maxWidth' => 0, 'titleGap' => 5, 'gap' => 5, 'xPos' => 'centre', 'xOrientation' => 'centre',
             'minRowSpace' => -100, 'rowGap' => 2, 'colGap' => 5, 'splitRows' => 0, 'protectRows' => 1, 'nextPageY' => 0,
             /* other */
-            'showHeadings' => 1, 'cols' => array(), 'evenColumns' => 0,
+            'showHeadings' => 1, 'cols' => array(), 'evenColumns' => 0, 'evenColumnsMin' => 20
         );
 
         foreach ($defaults as $key => $value) {
@@ -1341,6 +1341,27 @@ class Cezpdf extends Cpdf
             $pos['_end_'] = $t;
         }
 
+        // if the option is set to 2 and one of the columns is too narrow we need to look at recalculating the columns
+        if ($options['evenColumns'] == 2) {
+            $posVals = array();
+            foreach ($pos as $w) {
+                array_unshift($posVals, $w);
+            }
+            $narrowestCol = 9999;
+            $last = array_pop($posVals);
+            while (sizeof($posVals)) {
+                $current = array_pop($posVals);
+                $currentWidth = $current - $last;
+                if ($narrowestCol > $currentWidth) {
+                    $narrowestCol = $currentWidth;
+                }
+                $last = $current;
+            }
+            if ($narrowestCol < $options['evenColumnsMin']) {
+                $options['evenColumns'] = 1;
+            }
+        }
+
         // if the option is turned on we need to look at recalculating the columns
         if ($options['evenColumns'] == 1) {
             // what is the maximum width? it is either specified or the page width between the margins
@@ -1511,7 +1532,7 @@ class Cezpdf extends Cpdf
                 }
                 // patch #9 end
             } else {
-                $y1 = $y0;
+                $y1 = $y0 + ($options['rowGap'] / 2);
             }
             $firstLine = 1;
 
@@ -1539,11 +1560,11 @@ class Cezpdf extends Cpdf
 
                     $rowX = $pos[$colName] - ($options['gap'] / 2);
                     $rowY = $y + $descender + $height; // BUGGY
-                        $rowW = $maxWidth[$colName] + ($options['colGap'] * 2);
+                    $rowW = $maxWidth[$colName] + ($options['colGap'] * 2);
 
                         // decide which color to use!
                         // specified for the cell is first choice
-                    if (count($fillColor) && is_array($fillColor)) {
+                    if ($fillColor && count($fillColor) && is_array($fillColor)) {
                         $rowColShading[] = array('x' => $rowX, 'y' => $rowY, 'width' => $rowW, 'color' => $fillColor);
                     } // color of the column is second choice
                     elseif (isset($options['cols']) && isset($options['cols'][$colName]) && isset($options['cols'][$colName]['bgcolor']) && is_array($options['cols'][$colName]['bgcolor'])) {
@@ -2225,8 +2246,7 @@ class Cezpdf extends Cpdf
                 if (!isset($this->ez['links'])) {
                     $this->ez['links'] = array();
                 }
-                $i = $info['nCallback'];
-                $this->ez['links'][$i] = array('x' => $info['x'], 'y' => $info['y'], 'angle' => $info['angle'], 'descender' => $info['descender'], 'height' => $info['height'], 'url' => $info['p']);
+                $this->ez['links'][] = array('x' => $info['x'], 'y' => $info['y'], 'angle' => $info['angle'], 'descender' => $info['descender'], 'height' => $info['height'], 'url' => $info['p']);
                 if ($internal == 0) {
                     $this->saveState();
                     $this->setColor(0, 0, 1);
@@ -2239,8 +2259,7 @@ class Cezpdf extends Cpdf
             case 'eol':
                 // the end of the link
                 // assume that it is the most recent opening which has closed
-                $i = $info['nCallback'];
-                $start = $this->ez['links'][$i];
+                $start = array_shift($this->ez['links']);
                 // add underlining
                 if ($internal) {
                     $this->addInternalLink($start['url'], $start['x'], $start['y'] + $start['descender'], $info['x'], $start['y'] + $start['descender'] + $start['height']);
@@ -2272,8 +2291,8 @@ class Cezpdf extends Cpdf
                 if (!isset($this->ez['links'])) {
                     $this->ez['links'] = array();
                 }
-                $i = $info['nCallback'];
-                $this->ez['links'][$i] = array('x' => $info['x'], 'y' => $info['y'], 'angle' => $info['angle'], 'descender' => $info['descender'], 'height' => $info['height']);
+
+                $this->ez['links'][] = array('x' => $info['x'], 'y' => $info['y'], 'angle' => $info['angle'], 'descender' => $info['descender'], 'height' => $info['height']);
                 $this->saveState();
                 $thick = $info['height'] * $lineFactor;
                 $this->setLineStyle($thick);
@@ -2282,8 +2301,7 @@ class Cezpdf extends Cpdf
             case 'eol':
                 // the end of the link
                 // assume that it is the most recent opening which has closed
-                $i = $info['nCallback'];
-                $start = $this->ez['links'][$i];
+                $start = array_shift($this->ez['links']);
                 // add underlining
                 $a = deg2rad((float) $start['angle'] - 90.0);
                 $drop = $start['height'] * $lineFactor * 1.5;
@@ -2303,7 +2321,7 @@ class Cezpdf extends Cpdf
     public function comment(&$info)
     {
         if (isset($info)) {
-            $offsetY = $info['y'] + $info['height'];
+            $offsetY = $info['y'];
             // split title and text content use '|' char
             $commentPart = preg_split("/\|/", $info['p']);
             if (is_array($commentPart) && count($commentPart) > 1) {
@@ -2326,16 +2344,9 @@ class Cezpdf extends Cpdf
     public function color($info)
     {
         // a callback function to support the inline coloring of text
-
         switch ($info['status']) {
             case 'start':
             case 'sol':
-                // the beginning of the color zone
-                if (!isset($this->ez['links'])) {
-                    $this->ez['links'] = array();
-                }
-                $i = $info['nCallback'];
-                $this->ez['links'][$i] = array('x' => $info['x'], 'y' => $info['y'], 'angle' => $info['angle'], 'descender' => $info['descender'], 'height' => $info['height'], 'color' => $info['p']);
                 $this->saveState();
                 $colAry = explode(',', $info['p']);
                 $this->setColor($colAry[0], $colAry[1], $colAry[2]);
@@ -2344,8 +2355,7 @@ class Cezpdf extends Cpdf
             case 'eol':
                 // the end of the link
                 // assume that it is the most recent opening which has closed
-                $i = $info['nCallback'];
-                $this->setColor(0, 0, 0);
+                //$this->setColor(0, 0, 0);
                 $this->restoreState();
                 break;
         }
