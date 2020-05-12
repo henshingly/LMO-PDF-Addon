@@ -130,13 +130,13 @@ include(PATH_TO_LMO."/lmo-adminsubnavi.php");
   <tr>
     <td valign="top">
       <table class="lmoMenu" cellspacing="0" cellpadding="0" border="0">
-        <tr><td align="right"><?php if ($show==0) {echo $text[183];}else{?><a onclick="return chklmolink();" href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=edit&amp;show=0&amp;file=$file&amp;st=-1";?>"><?php echo $text[183];?></a><?}?></td></tr><?
+        <tr><td align="right"><?php if ($show==0) {echo $text[183];}else{?><a onclick="return chklmolink();" href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=edit&amp;show=0&amp;file=$file&amp;st=-1";?>"><?php echo $text[183];?></a><?php }?></td></tr><?php
   if ($_SESSION['lmouserok']==2 || $_SESSION['lmouserokerweitert']==1) {?>
-        <tr><td align="right"><?php if ($show==2) {echo $text[250];}else{?><a onclick="return chklmolink();" href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=edit&amp;show=2&amp;file=$file&amp;st=-1";?>"><?php echo $text[250];?></a><?}?></td></tr><?
+        <tr><td align="right"><?php if ($show==2) {echo $text[250];}else{?><a onclick="return chklmolink();" href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=edit&amp;show=2&amp;file=$file&amp;st=-1";?>"><?php echo $text[250];?></a><?php }?></td></tr><?php
     if ($lmtype==0){?>
-        <tr><td align="right"><?php if ($show==3) {echo $text[178];}else{?><a onclick="return chklmolink();" href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=edit&amp;show=3&amp;file=$file&amp;st=-1";?>"><?php echo $text[178];?></a><?}?></td></tr>
-        <tr><td align="right"><?php if ($show==4) {echo $text[40];}else{?><a onclick="return chklmolink();" href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=edit&amp;show=4&amp;file=$file&amp;st=-1";?>"><?php echo $text[40];?></a><?}?></td></tr>
-        <tr><td align="right"><a href='<?php echo "$addr-3"?>' onclick="return chklmolink();" title="<?php echo $text[339]?>"><?php echo $text[338]?></a></td></tr><?
+        <tr><td align="right"><?php if ($show==3) {echo $text[178];}else{?><a onclick="return chklmolink();" href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=edit&amp;show=3&amp;file=$file&amp;st=-1";?>"><?php echo $text[178];?></a><?php }?></td></tr>
+        <tr><td align="right"><?php if ($show==4) {echo $text[40];}else{?><a onclick="return chklmolink();" href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=edit&amp;show=4&amp;file=$file&amp;st=-1";?>"><?php echo $text[40];?></a><?php }?></td></tr>
+        <tr><td align="right"><a href='<?php echo "$addr-3"?>' onclick="return chklmolink();" title="<?php echo $text[339]?>"><?php echo $text[338]?></a></td></tr><?php
     }
   }?>
       </table>
