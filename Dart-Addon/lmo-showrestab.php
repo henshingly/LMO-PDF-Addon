@@ -1,4 +1,4 @@
-<? 
+<?php
 /** Liga Manager Online 4
   *
   * http://lmo.sourceforge.net/
@@ -7,7 +7,7 @@
   * modify it under the terms of the GNU General Public License as
   * published by the Free Software Foundation; either version 2 of
   * the License, or (at your option) any later version.
-  * 
+  *
   * This program is distributed in the hope that it will be useful,
   * but WITHOUT ANY WARRANTY; without even the implied warranty of
   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,7 +16,7 @@
   * REMOVING OR CHANGING THE COPYRIGHT NOTICES IS NOT ALLOWED!
   *
   */
-  
+
 
 if (isset($file) && $file != "") {
 // geändert Dart-Patch für Tendenz
@@ -51,7 +51,7 @@ if (isset($file) && $file != "") {
     $platz1 = array("");
     $platz1 = array_pad($array, $anzteams+1, "");
     for($x = 0; $x < $anzteams; $x++) {
-// geändert Dart-Patch für Tendenz (34 --> $substrwert)
+      // geändert Dart-Patch für Tendenz (34 --> $substrwert)
       $platz1[intval(substr($tab0[$x], $substrwert))] = $x+1;
     }
     $endtab++;
@@ -63,7 +63,7 @@ if (isset($file) && $file != "") {
     $hplatz = array("");
     $hplatz = array_pad($array, $anzteams+1, "");
     for($x = 0; $x < $anzteams; $x++) {
-// geändert Dart-Patch für Tendenz (34 --> $substrwert)
+      // geändert Dart-Patch für Tendenz (34 --> $substrwert)
       $hplatz[intval(substr($tab0[$x], $substrwert))] = $x+1;
     }
     $hspiele = $spiele;
@@ -80,7 +80,7 @@ if (isset($file) && $file != "") {
     $aplatz = array("");
     $aplatz = array_pad($array, $anzteams+1, "");
     for($x = 0; $x < $anzteams; $x++) {
-        // geändert Dart-Patch für Tendenz (34 --> $substrwert)
+      // geändert Dart-Patch für Tendenz (34 --> $substrwert)
       $aplatz[intval(substr($tab0[$x], $substrwert))] = $x+1;
     }
     $aspiele = $spiele;
@@ -98,7 +98,7 @@ if (isset($file) && $file != "") {
   $platz0 = array("");
   $platz0 = array_pad($array, $anzteams+1, "");
   for($x = 0; $x < $anzteams; $x++) {
-// geändert Dart-Patch für Tendenz (34 --> $substrwert)
+    // geändert Dart-Patch für Tendenz (34 --> $substrwert)
     $platz0[intval(substr($tab0[$x], $substrwert))] = $x+1;
   }
   if ($tabdat == "") {
@@ -110,44 +110,44 @@ if (isset($file) && $file != "") {
 
 ?>
 
-<table class="lmoMiddle" cellspacing="0" cellpadding="0" border="0"><?
+<table class="lmoMiddle" cellspacing="0" cellpadding="0" border="0"><?php
 
   /** Spieltagsauswahl*/?>
   <tr>
-    <td align="center"><? include(PATH_TO_LMO."/lmo-spieltagsmenu.php")?></td>
-  </tr><?
-  
+    <td align="center"><?php include(PATH_TO_LMO."/lmo-spieltagsmenu.php")?></td>
+  </tr><?php
+
   /** Ergebnisse*/
   if ($tabonres >= 1 || $action=="results") {?>
   <tr>
-    <td align="center"><? include(PATH_TO_LMO."/lmo-showresults.php")?></td>
-  </tr><?
+    <td align="center"><?php include(PATH_TO_LMO."/lmo-showresults.php")?></td>
+  </tr><?php
   }
-  
+
   /** Vor und Zurück-Pfeile*/?>
   <tr>
     <td>
       <table width="100%" cellspacing="0" cellpadding="0" border="0">
-        <tr><?  
+        <tr><?php
    $st0 = $st-1;
    if ($st > 1) {?>
-          <td align="left">&nbsp;<a href="<?=$addr.$st0?>" title="<?=$text[6]?>"><?=$text[5]?> <?=$text[6]?></a>&nbsp;</td><?
+          <td align="left">&nbsp;<a href="<?php echo $addr.$st0?>" title="<?php echo $text[6]?>"><?php echo $text[5]?> <?php echo $text[6]?></a>&nbsp;</td><?php
    }
    $st0 = $st+1;
    if ($st < $anzst) {?>
-          <td align="right">&nbsp;<a href="<?=$addr.$st0?>" title="<?=$text[8]?>"><?=$text[8]?> <?=$text[7]?></a>&nbsp;</td><?
+          <td align="right">&nbsp;<a href="<?php echo $addr.$st0?>" title="<?php echo $text[8]?>"><?php echo $text[8]?> <?php echo $text[7]?></a>&nbsp;</td><?php
    }?>
         </tr>
       </table>
     </td>
-  </tr><?
-  
+  </tr><?php
+
   /** Tabelle*/
   if ($tabonres >= 1 || $action=="table") {?>
   <tr>
-    <td align="center"><? include(PATH_TO_LMO."/lmo-showtable.php")?></td>
-  </tr><?
+    <td align="center"><?php include(PATH_TO_LMO."/lmo-showtable.php")?></td>
+  </tr><?php
   }?>
 
-</table><?
+</table><?php
 }?>

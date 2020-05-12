@@ -1,4 +1,4 @@
-<?
+<?php
 /** Liga Manager Online 4
   *
   * http://lmo.sourceforge.net/
@@ -7,7 +7,7 @@
   * modify it under the terms of the GNU General Public License as
   * published by the Free Software Foundation; either version 2 of
   * the License, or (at your option) any later version.
-  * 
+  *
   * This program is distributed in the hope that it will be useful,
   * but WITHOUT ANY WARRANTY; without even the implied warranty of
   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -16,8 +16,8 @@
   * REMOVING OR CHANGING THE COPYRIGHT NOTICES IS NOT ALLOWED!
   *
   */
-  
-  
+
+
 if (($file!="") && ($subteams!="")) {
   if (!isset($tabtype)) {
     $tabtype = 0;
@@ -35,11 +35,11 @@ if (($file!="") && ($subteams!="")) {
   $etore1 = array_pad($array,$anzteams+1,"0");
   $atore1 = array_pad($array,$anzteams+1,"0");
   $dtore1 = array_pad($array,$anzteams+1,"0");
-// hinzugefügt analog Dart-Patch lmo-calctable.php
+  // hinzugefügt analog Dart-Patch lmo-calctable.php
   $psaetze = array_pad($array, $anzteams+1, "0");
   $msaetze = array_pad($array, $anzteams+1, "0");
   $dsaetze = array_pad($array, $anzteams+1, "0");
-// hinzugefügt analog Dart-Patch lmo-calctable.php
+  // hinzugefügt analog Dart-Patch lmo-calctable.php
   $mcalc = array_pad($array,116,"");
   $hoy=0;
   for ($i=0; $i<116; $i++) {
@@ -85,10 +85,10 @@ if (($file!="") && ($subteams!="")) {
           if (($a==$teama[$j][$i]) || (($a==$teamb[$j][$i]) && ($msieg[$j][$i]==3))) {
             $etore1[$a]=$etore1[$a]+$goala[$j][$i];
             $atore1[$a]=$atore1[$a]+$goalb[$j][$i];
-// hinzugefügt analog Dart-Patch lmo-calctable.php
+            // hinzugefügt analog Dart-Patch lmo-calctable.php
             $psaetze[$a] = $psaetze[$a]+$satza[$j][$i];
             $msaetze[$a] = $msaetze[$a]+$satzb[$j][$i];
-// hinzugefügt analog Dart-Patch lmo-calctable.php
+            // hinzugefügt analog Dart-Patch lmo-calctable.php
             if ($msieg[$j][$i]==1) {
               $siege1[$a]=$siege1[$a]+1;
               $punkte1[$a]=$punkte1[$a]+$p0s;
@@ -126,10 +126,10 @@ if (($file!="") && ($subteams!="")) {
           if (($a==$teamb[$j][$i]) && ($msieg[$j][$i]!=3)) {
             $etore1[$a]=$etore1[$a]+$goalb[$j][$i];
             $atore1[$a]=$atore1[$a]+$goala[$j][$i];
-// hinzugefügt analog Dart-Patch lmo-calctable.php
+            // hinzugefügt analog Dart-Patch lmo-calctable.php
             $psaetze[$a] = $psaetze[$a]+$satzb[$j][$i];
             $msaetze[$a] = $msaetze[$a]+$satza[$j][$i];
-// hinzugefügt analog Dart-Patch lmo-calctable.php
+            // hinzugefügt analog Dart-Patch lmo-calctable.php
             if ($msieg[$j][$i]==2) {
               $siege1[$a]=$siege1[$a]+1;
               $punkte1[$a]=$punkte1[$a]+$p0s;
@@ -168,12 +168,12 @@ if (($file!="") && ($subteams!="")) {
       }
     }
     $dtore1[$a]=$etore1[$a]-$atore1[$a];
-// hinzugefügt analog Dart-Patch lmo-calctable.php
+    // hinzugefügt analog Dart-Patch lmo-calctable.php
     $dsaetze[$a] = $psaetze[$a]-$msaetze[$a];
-// hinzugefügt analog Dart-Patch lmo-calctable.php
+    // hinzugefügt analog Dart-Patch lmo-calctable.php
     for ($c=0; $c<count($subteam); $c++) {
       if ($subteam[$c]==$a) {
-// geändert analog Dart-Patch lmo-calctable.php
+        // geändert analog Dart-Patch lmo-calctable.php
         if ($kegel == 0 || $ligaType == "dart" ) {
             if ($ligaType == "dart") {
                 array_push($tab1,(50000000+$punkte1[$a]).(50000000-$negativ1[$a]).(50000000+$dtore1[$a]).(50000000+$etore1[$a]).(50000000+$dsaetze[$a]).(50000000+$psaetze[$a]).(50000000+$c).(50000000+$a));

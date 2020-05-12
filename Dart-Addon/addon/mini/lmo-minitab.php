@@ -1,4 +1,4 @@
-<?
+<?php
 /** Liga Manager Online 4
   *
   * http://lmo.sourceforge.net/
@@ -45,7 +45,7 @@ if (basename($_SERVER['PHP_SELF'])=="lmo-minitab.php") {?>
   html,body {margin:0;padding:0;background:transparent;}
 </style>
 </head>
-<body><?
+<body><?php
 }
 
 /**Format of CSV-File:
@@ -110,12 +110,12 @@ if (file_exists(PATH_TO_LMO.'/'.$diroutput.basename($m_liga).'-tab.csv')) {
     $template->setVariable(array("MinusTore"=>$m_tabelle[$j][5]));
     if (($m_diff=$m_tabelle[$j][4]-$m_tabelle[$j][5])>0) $m_diff='+'.$m_diff;
     $template->setVariable(array("Tordifferenz"=>$m_diff));
-// Dart Liga    
+    // Dart Liga
     $template->setVariable(array("PlusSaetze"=>$m_tabelle[$j][12]));
     $template->setVariable(array("MinusSaetze"=>$m_tabelle[$j][13]));
     if (( $satzDiff = $m_tabelle[$j][12]-$m_tabelle[$j][13]) > 0 ) $satzDiff = "+".$satzDiff;
     $template->setVariable(array("SatzDifferenz"=>$satzDiff));
-// Dart Liga     
+    // Dart Liga
     $template->setVariable(array("Spiele"=>$m_tabelle[$j][6]));
     $template->setVariable(array("Siege"=>$m_tabelle[$j][7]));
     $template->setVariable(array("Unentschieden"=>$m_tabelle[$j][8]));
@@ -172,5 +172,5 @@ if (file_exists(PATH_TO_LMO.'/'.$diroutput.basename($m_liga).'-tab.csv')) {
 //Falls IFRAME - komplettes HTML-Dokument
 if (basename($_SERVER['PHP_SELF'])=="lmo-minitab.php") {?>
 </body>
-</html><?
+</html><?php
 }?>

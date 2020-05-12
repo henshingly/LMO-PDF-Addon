@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * Partie
  *
@@ -70,7 +70,7 @@ class partie {
  * @access private
 */
   var $otherParameter;
-  
+
   /**
  * URL zum Spielbericht der Partie
  * @var string
@@ -89,7 +89,7 @@ class partie {
   */
   var $spielEnde;
 
-  function partie($n_spNr,$n_time,$n_notiz,
+  function __construct($n_spNr,$n_time,$n_notiz,
   &$n_heim,&$n_gast,$n_htore,
   $n_gtore,$n_hpunkte,$n_gpunkte) {
     $this->spNr = $n_spNr;
@@ -142,7 +142,7 @@ class partie {
     return $str;
   }
 
-   
+
 /**
  * Gibt Gewonnen Saetze der Heimmannschaft für die Bildschirmausgabe zurück.
  *
@@ -158,7 +158,7 @@ class partie {
    else $str = $this->otherParameter['SA'];
    return $str;
  }
- 
+
  /**
  * Gibt Gewonnen Saetze der Gastmannschaft für die Bildschirmausgabe zurück.
  *
@@ -173,8 +173,8 @@ class partie {
    if ($this->otherParameter['SB'] < 1) $str = $leer;
     else $str = $this->otherParameter['SB'];
     return $str;
- }  
-  
+ }
+
   /**
   * Ermittelt die Wertung der Partie
   *
@@ -282,7 +282,7 @@ class partie {
     echo " Anpfiff: ".$this->zeitString()."Uhr";
     echo " Ergebnis:".$this->hTore." - ".$this->gTore;
   }
-  
+
 /**
  * Weitere Parameter zur Partie setzen.
  * z.B. Sätze / Halbzeitergebnisse usw.
@@ -294,12 +294,12 @@ class partie {
  */
   function setParameter($parameter,$key="") {
     if (is_array($parameter) ) {
-      $this->otherParameter = array_merge($this->otherParameter,$parameter);      
+      $this->otherParameter = array_merge($this->otherParameter,$parameter);
     } else {
       $this->otherParameter[$key] = $parameter;
-    }  
+    }
   }
-  
+
 /**
  * Weitere Parameter zur Partie setzen.
  * z.B. Sätze / Halbzeitergebnisse usw.
@@ -311,8 +311,8 @@ class partie {
  */
   function getParameter($key="") {
     if ($key == "") return $this->otherParameter;
-    else return $this->otherParameter[$key];    
+    else return $this->otherParameter[$key];
   }
-  
+
 }
 ?>

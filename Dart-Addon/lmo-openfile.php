@@ -1,4 +1,4 @@
-<?
+<?php
 /** Liga Manager Online 4
   *
   * http://lmo.sourceforge.net/
@@ -7,7 +7,7 @@
   * modify it under the terms of the GNU General Public License as
   * published by the Free Software Foundation; either version 2 of
   * the License, or (at your option) any later version.
-  * 
+  *
   * This program is distributed in the hope that it will be useful,
   * but WITHOUT ANY WARRANTY; without even the implied warranty of
   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
@@ -51,6 +51,7 @@ if(!empty($file) && check_hilfsadmin($file)){
               case "DatF":         $datf=$wert;break;
               case "urlT":         $urlt=$wert;break;
               case "urlB":         $urlb=$wert;break;
+              case "stats":        $stats=$wert;break;
               case "Plan":         $plan=$wert;break;
               case "Ergebnis":     $ergebnis=$wert;break;
               case "mittore":      $mittore=$wert;break;
@@ -127,6 +128,7 @@ if(!empty($file) && check_hilfsadmin($file)){
       if(!isset($datf)){                       $datf=$defdateformat;}
       if(!isset($urlt)){                       $urlt=1;}
       if(!isset($urlb)){                       $urlb=0;}
+      if(!isset($stats)){                      $stats=0;}
       if(!isset($goalfaktor) || $goalfaktor=="")    { $goalfaktor=1;}
       if(!isset($pointsfaktor) || $pointsfaktor==""){ $pointsfaktor=1;}
       if(!isset($enablegamesort)){             $enablegamesort=1;}
@@ -209,7 +211,7 @@ if(!empty($file) && check_hilfsadmin($file)){
           $teama[$i] = array_pad(array("0"),40,"0");
           $teamb[$i] = array_pad(array("0"),40,"0");
           $goala[$i] = array_pad(array("_"),40,"_");
-          $goalb[$i] = array_pad(array("_"),40,"_"); 
+          $goalb[$i] = array_pad(array("_"),40,"_");
           $satza[$i] = array_pad(array("0"),40,"0");      // Dart Patch
           $satzb[$i] = array_pad(array("0"),40,"0");      // Dart Patch
           $mspez[$i] = array_pad($array,40,"");
@@ -240,7 +242,7 @@ if(!empty($file) && check_hilfsadmin($file)){
           $goala[$i] = array_pad($array,64,"");
           $goalb[$i] = array_pad($array,64,"");
           $satza[$i] = array_pad($array,64,"");      // Dart Patch
-          $satzb[$i] = array_pad($array,64,"");      // Dart Patch          
+          $satzb[$i] = array_pad($array,64,"");      // Dart Patch
           $mspez[$i] = array_pad($array,64,"");
           $mnote[$i] = array_pad($array,64,"");
           $mberi[$i] = array_pad($array,64,"");
@@ -273,11 +275,11 @@ if(!empty($file) && check_hilfsadmin($file)){
         if($dum[0]=="Teamk"){$teamk[$dum[1]]=stripslashes($dum[2]);}
         $op1=substr($dum[0],0,4);
         $op2=substr($dum[0],0,5);
-        $op3=substr($dum[0],5)-1;
-        $op4=substr($dum[1],2)-1;
+        $op3=((int)substr($dum[0],5)-1);
+        $op4=((int)substr($dum[1],2)-1);
         $op5=substr($dum[0],4);
-        $op6=substr($dum[1],2,-1)-1;
-        $op7=substr($dum[1],-1)-1;
+        $op6=((int)substr($dum[1],2,-1)-1);
+        $op7=((int)substr($dum[1],-1)-1);
         $op8=substr($dum[1],0,2);
 
         if($op1=="Team" && $dum[0]!="Teams" && $dum[0]!="Teamk" && $dum[0]!="Teamm") {
@@ -320,7 +322,7 @@ if(!empty($file) && check_hilfsadmin($file)){
               elseif($goalb[$op3][$op4]=="-1"){$goalb[$op3][$op4]="_";}
               elseif($goalb[$op3][$op4]=="-2"){$msieg[$op3][$op4]=2;$goalb[$op3][$op4]="0";}
               break;
-       // Dart Liga        
+              // Dart Liga
               case "SA":
                  $satza[$op3][$op4]=$dum[2];
                  if($satza[$op3][$op4]==""){$satza[$op3][$op4]=-1;}
@@ -330,8 +332,8 @@ if(!empty($file) && check_hilfsadmin($file)){
                  $satzb[$op3][$op4]=$dum[2];
                  if($satzb[$op3][$op4]==""){$satzb[$op3][$op4]=-1;}
                  elseif($satzb[$op3][$op4]=="-1"){$satzb[$op3][$op4]="0";}
-                 break;  
-      // Dart Liga 
+                 break;
+              // Dart Liga
               case "SP":
               if($spez==1){
                 $mspez[$op3][$op4]=$dum[2];
@@ -361,18 +363,18 @@ if(!empty($file) && check_hilfsadmin($file)){
               if($goalb[$op3][$op6][$op7]==""){$goalb[$op3][$op6][$op7]=-1;}
               elseif($goalb[$op3][$op6][$op7]=="-1"){$goalb[$op3][$op6][$op7]="_";}
               break;
-        // Dart Liga
+              // Dart Liga
               case "SA":
                  $satza[$op3][$op6][$op7]=$dum[2];
                  if($satza[$op3][$op6][$op7]==""){$satza[$op3][$op6][$op7]=-1;}
                  elseif($satza[$op3][$op6][$op7]=="-1"){$satza[$op3][$op6][$op7]="0";}
               break;
-              case "SB": 
+              case "SB":
                  $satza[$op3][$op6][$op7]=$dum[2];
                  if($satza[$op3][$op6][$op7]==""){$satza[$op3][$op6][$op7]=-1;}
                  elseif($satza[$op3][$op6][$op7]=="-1"){$satza[$op3][$op6][$op7]="0";}
               break;
-       // Dart Liga               
+              // Dart Liga
               case "SP":
               $mspez[$op3][$op6][$op7]=$dum[2];
               if($mspez[$op3][$op6][$op7]==0){$mspez[$op3][$op6][$op7]="&nbsp;";}

@@ -217,10 +217,10 @@ if ($mini_cache_counter==0 || $mini_cache_counter > $mini_cache_refresh) {
 
         $template->setVariable("previous_hTore",$lastPartie->hToreString());
         $template->setVariable("previous_gTore",$lastPartie->gToreString());
-    // Dart Liga    
+        // Dart Liga
         $template->setVariable("previous_hSaetze",$lastPartie->hSatzString());
         $template->setVariable("previous_gSaetze",$lastPartie->gSatzString());
-    // Dart Liga             
+        // Dart Liga
         $template->setVariable("previous_gameTxt",$text['mini'][7]);
         $template->parseCurrentBlock();
       }
@@ -293,10 +293,10 @@ if ($mini_cache_counter==0 || $mini_cache_counter > $mini_cache_refresh) {
         $template->setVariable("date",$paarung['partie']->datumString());
         $template->setVariable("hTore",$paarung['partie']->hToreString());
         $template->setVariable("gTore",$paarung['partie']->gToreString());
-    // Dart Liga    
+        // Dart Liga
         $template->setVariable("hSaetze",$paarung['partie']->hSatzString());
         $template->setVariable("gSaetze",$paarung['partie']->gSatzString());
-    // Dart Liga           
+        // Dart Liga
         $template->setVariable("where",$paarung['where']);
         if (isset($paarung['match']) && strtolower($paarung['match']) != strtolower($team_b->name) ) {
           //echo "<br>Vergleich: ".strtolower($paarung['match'])." = ".strtolower($team_b->name);

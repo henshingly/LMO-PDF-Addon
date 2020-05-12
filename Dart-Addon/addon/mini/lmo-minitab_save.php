@@ -1,4 +1,4 @@
-<?
+<?php
 /** Liga Manager Online 4
 *
 * http://lmo.sourceforge.net/
@@ -44,7 +44,7 @@ if(($_SESSION['lmouserok']==2)||($_SESSION['lmouserok']==1)){
       $teamNumber = $ligaType=="dart"? 6:4;
       $x++;
       $tabledata=explode('|',chunk_split($y,8,"|"));
-      
+
       fwrite($fp,$teams[$tabledata[$teamNumber]-50000000].'|');                              //TeamLongName    (langer Name)
       fwrite($fp,$teamk[$tabledata[$teamNumber]-50000000].'|');                              //TeamAbbrevation (kurzer Name)
       fwrite($fp,applyFactor($punkte[$tabledata[$teamNumber]-50000000],$pointsfaktor).'|');  //Points+
@@ -54,13 +54,13 @@ if(($_SESSION['lmouserok']==2)||($_SESSION['lmouserok']==1)){
       fwrite($fp,'|');
       fwrite($fp,applyFactor($etore[$tabledata[$teamNumber]-50000000],$goalfaktor).'|');     //Goals+
       fwrite($fp,applyFactor($atore[$tabledata[$teamNumber]-50000000],$goalfaktor).'|');     //Goals-
-      fwrite($fp,$spiele[$tabledata[$teamNumber]-50000000].'|');                             //Games                        
+      fwrite($fp,$spiele[$tabledata[$teamNumber]-50000000].'|');                             //Games
       fwrite($fp,$siege[$tabledata[$teamNumber]-50000000].'|');                              //Win
       fwrite($fp,$unent[$tabledata[$teamNumber]-50000000].'|');                              //Draw
       fwrite($fp,$nieder[$tabledata[$teamNumber]-50000000].'|');                             //Loss
       if (($tabledata[$teamNumber]-50000000)==$favteam) {                                    //Marking
         fwrite($fp,"F");
-      } 
+      }
       if (($x == 1) && ($champ != 0)) {
         fwrite($fp,"M");
         $j = 2;
@@ -82,16 +82,16 @@ if(($_SESSION['lmouserok']==2)||($_SESSION['lmouserok']==1)){
       }
       fwrite($fp,'|'.$teamn[$tabledata[4]-50000000]);      //TeamShortName (Mittellanger Name)
       fwrite($fp,'|'.$teamm[$tabledata[4]-50000000]);
- // Dart Liga      
+      // Dart Liga
       if (isset($psaetze) ) {
-        fwrite($fp,'|'.$psaetze[$tabledata[$teamNumber]-50000000]); 
-        fwrite($fp,'|'.$msaetze[$tabledata[$teamNumber]-50000000]); 
+        fwrite($fp,'|'.$psaetze[$tabledata[$teamNumber]-50000000]);
+        fwrite($fp,'|'.$msaetze[$tabledata[$teamNumber]-50000000]);
       }
- // Dart Liga
+      // Dart Liga
       fwrite($fp,"\n");
     }
     fclose($fp);
   }
-    /*Minitabellen-CSV schreiben*/ 
+    /*Minitabellen-CSV schreiben*/
 }
 ?>

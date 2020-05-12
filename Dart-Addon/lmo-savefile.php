@@ -1,4 +1,4 @@
-<?
+<?php
 /** Liga Manager Online 4
   *
   * http://lmo.sourceforge.net/
@@ -39,7 +39,7 @@ if (($_SESSION['lmouserok']==2)||($_SESSION['lmouserok']==1)) {
         fputs($datei,"Title=".$text[54]."\n");
         fputs($datei,"Name=".$titel."\n");
         fputs($datei,"Type=".$lmtype."\n");
-        if ($ligaType) fputs($datei,"LigaType=".$ligaType."\n");
+        if ($ligaType) fputs($datei,"LigaType=".$ligaType."\n"); //hinzugefügt für Dart Patch
         fputs($datei,"Teams=".$anzteams."\n");
         fputs($datei,"goalfaktor=".$goalfaktor."\n");
         fputs($datei,"pointsfaktor=".$pointsfaktor."\n");
@@ -187,12 +187,12 @@ if (($_SESSION['lmouserok']==2)||($_SESSION['lmouserok']==1)) {
               } else {
                 fputs($datei,"GB".$j."=".$goalb[$i-1][$j-1]."\n");
               }
-      // Dart Liga    
+              // Dart Liga
               if (isset($satza) ) {
-                 fputs($datei,"SA".$j."=".$satza[$i-1][$j-1]."\n");    
+                 fputs($datei,"SA".$j."=".$satza[$i-1][$j-1]."\n");
                  fputs($datei,"SB".$j."=".$satzb[$i-1][$j-1]."\n");
-              }  
-      // Dart Liga              
+              }
+              // Dart Liga
               if ($msieg[$i-1][$j-1]==3) {
                 fputs($datei,"ET".$j."=3\n");
               }
@@ -221,12 +221,12 @@ if (($_SESSION['lmouserok']==2)||($_SESSION['lmouserok']==1)) {
                 } else {
                   fputs($datei,"GB".$j.$n."=".$goalb[$i-1][$j-1][$n-1]."\n");
                 }
-       // Dart Liga    
+                // Dart Liga
                 if (isset($satza) ) {
                    fputs($datei,"SA".$j.$n."=".$satza[$i-1][$j-1][$n-1]."\n");
                    fputs($datei,"SB".$j.$n."=".$satzb[$i-1][$j-1][$n-1]."\n");
-                }  
-       // Dart Liga                 
+                }
+                // Dart Liga
                 if ($mspez[$i-1][$j-1][$n-1]=="_") {
                   fputs($datei,"SP".$j.$n."=0\n");
                 } else if ($mspez[$i-1][$j-1][$n-1]==$text[0]) {

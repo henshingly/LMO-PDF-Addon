@@ -75,17 +75,17 @@ if($tabpkt==0){?>
     <th style="width:2px;">&nbsp;</th>
     <th colspan="3" align="center"><?php echo $text[38]; ?></th>
     <th align="right"><?php echo $text[39]; ?></th><?php
-// DartLiga    
+// DartLiga
 if ( $ligaType == "dart") : ?>
     <th width="2">&nbsp;</th>
-    <th width="2" colspan="3"><?=$text['dart'][000]?></th>
+    <th width="2" colspan="3"><?php echo $text['dart'][000]?></th>
     <th width="2">&nbsp;</th>
-    <th width="2"><?=$text[39]?></th>
-<? endif;  
-// DartLiga    
+    <th width="2"><?php echo $text[39]?></th>
+<?php endif;
+// DartLiga
 if($tabpkt==1){?>
     <th style="width:2px;">&nbsp;</th>
-    <th <?=$dummy?>><?php echo $text[37]; ?></th><?php
+    <th <?php echo $dummy?>><?php echo $text[37]; ?></th><?php
 }
 if($tabonres==2){?>
     <th style="width:2px;">&nbsp;</th>
@@ -97,14 +97,14 @@ if($tabonres==2){?>
     <th align="right"><?php echo $text[36]; ?></th><?php
   if($tabpkt==0){?>
     <th style="width:2px;">&nbsp;</th>
-    <th <?=$dummy?>><?php echo $text[37]; ?></th><?php
+    <th <?php echo $dummy?>><?php echo $text[37]; ?></th><?php
   } ?>
     <th style="width:2px;">&nbsp;</th>
     <th colspan="3" align="center"><?php echo $text[38]; ?></th>
     <th align="right"><?php echo $text[39]; ?></th><?php
   if($tabpkt==1){?>
     <th style="width:2px;">&nbsp;</th>
-    <th <?=$dummy?>><?php echo $text[37]; ?></th><?php
+    <th <?php echo $dummy?>><?php echo $text[37]; ?></th><?php
   }?>
     <th style="width:2px;">&nbsp;</th>
     <th align="right"><?php echo $text[33]; ?></th>
@@ -115,7 +115,7 @@ if($tabonres==2){?>
     <th align="right"><?php echo $text[36]; ?></th><?php
   if($tabpkt==0){?>
     <th style="width:2px;">&nbsp;</th>
-    <th<?=$dummy?>><?php echo $text[37]?></th><?php
+    <th<?php echo $dummy?>><?php echo $text[37]?></th><?php
   }?>
     <th style="width:2px;">&nbsp;</th>
     <th colspan="3" align="center"><?php echo $text[38]; ?></th>
@@ -195,7 +195,8 @@ for($x = 1; $x <= $anzteams; $x++) {
     $lmo_tabellennotiz.=" <strong>".$teams[$i]."</strong>";
     //Straf-/Bonuspunkte
     if ($strafp[$i]!=0 || $strafm[$i]!=0) {
-      $lmo_tabellennotiz.="\n\n<strong>".$text[128].":</strong> ";
+      $lmo_tabellennotiz.="\n\n<strong>".$text[128].":</strong>
+";
       //Punkte
       $lmo_tabellennotiz.=$strafp[$i]<0?"+".((-1)*applyFactor($strafp[$i],$pointsfaktor)):((-1)*applyFactor($strafp[$i],$pointsfaktor));
       //Minuspunkte
@@ -207,7 +208,8 @@ for($x = 1; $x <= $anzteams; $x++) {
     }
     //Straf-/Bonustore
     if ($torkorrektur1[$i]!=0 || $torkorrektur2[$i]!=0) {
-      $lmo_tabellennotiz.="\n<strong>".$text[522].":</strong> ";
+      $lmo_tabellennotiz.="\n<strong>".$text[522].":</strong>
+";
       //Tore
       $lmo_tabellennotiz.=$torkorrektur1[$i]<0?"+".((-1)*applyFactor($torkorrektur1[$i],$goalfaktor)).":":((-1)*applyFactor($torkorrektur1[$i],$goalfaktor)).":";
       //Gegentore
@@ -217,7 +219,8 @@ for($x = 1; $x <= $anzteams; $x++) {
     }
     //Teamnotizen
     if ($teamn[$i]!="") {
-      $lmo_tabellennotiz.="\n\n<strong>".$text[22].":</strong> ".$teamn[$i];
+      $lmo_tabellennotiz.="\n\n<strong>".$text[22].":</strong>
+".$teamn[$i];
     }?>
       <a href='#' onclick="alert('<?php echo mysql_escape_string(htmlentities(strip_tags($lmo_tabellennotiz)))?>');window.focus();return false;"><img src='<?php echo URL_TO_IMGDIR."/lmo-st2.gif"?>' width='10' height='12' border='0' alt='' /><span class='popup'><?php echo nl2br($lmo_tabellennotiz)?></span></a><?php
     $lmo_tabellennotiz="";
@@ -246,16 +249,16 @@ for($x = 1; $x <= $anzteams; $x++) {
     <td class="<?php echo $lmo_tabelle_class; ?>" align="center" style="width:4px;"><?php echo $dummy; ?>:<?php echo $dumm2; ?></td>
     <td class="<?php echo $lmo_tabelle_class; ?>"><?php echo $dummy.applyFactor($atore[$i],$goalfaktor).$dumm2; ?></td>
     <td class="<?php echo $lmo_tabelle_class; ?>" align="right"><?php echo $dummy.applyFactor($dtore[$i],$goalfaktor).$dumm2; ?></td><?php
-// DartLiga  
+// DartLiga
   if ( $ligaType == "dart") : ?>
     <td class="<?php echo $lmo_tabelle_class?>" width="2">&nbsp;</td>
     <td class="<?php echo $lmo_tabelle_class?>" ><?php echo $dummy.$psaetze[$i].$dumm2; ?></td>
-    <td class="<?php echo $lmo_tabelle_class; ?>" align="center" width="4"><?php echo $dummy; ?>:<?php echo $dumm2; ?></td>  
-    <td class="<?php echo $lmo_tabelle_class?>" ><?php echo $dummy.$msaetze[$i].$dumm2; ?></td>  
+    <td class="<?php echo $lmo_tabelle_class; ?>" align="center" width="4"><?php echo $dummy; ?>:<?php echo $dumm2; ?></td>
+    <td class="<?php echo $lmo_tabelle_class?>" ><?php echo $dummy.$msaetze[$i].$dumm2; ?></td>
     <td class="<?php echo $lmo_tabelle_class?>" width="2">&nbsp;</td>
     <td class="<?php echo $lmo_tabelle_class?>" align="right"><?php echo $dummy.$dsaetze[$i].$dumm2; ?></td>
-<?php endif;   
-// DartLiga    
+<?php endif;
+// DartLiga
   if($tabpkt==1){?>
     <td class="<?php echo$lmo_tabelle_class?>" style="width:2px;">&nbsp;</td>
     <td class="<?php echo $lmo_tabelle_class?>" align="right"><strong><?php echo applyFactor($punkte[$i],$pointsfaktor)?></strong></td><?php

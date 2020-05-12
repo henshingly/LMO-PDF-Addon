@@ -74,7 +74,7 @@ class liga {
 */
   var $sections;
 
-   function liga($name="",$kurz="") {
+   function __construct($name="",$kurz="") {
     $this->name = $name;
     $this->kurz = $kurz;
     $this->spieltage = array();
@@ -111,13 +111,15 @@ class liga {
     $i = 0;
     $found=-1;
     $selectedTeam = null;
-    while (($i<$count) and ($found != 0)):
+    while (($i<$count) && ($found != 0)) {
       $found = strcmp($this->teams[$i]->name,$teamName);
- //     $found = $this->teams[$i]->name == $teamName?0:-1;
+      //     $found = $this->teams[$i]->name == $teamName?0:-1;
       $i++;
-    endwhile;
-    if ($found==0) return $this->teams[$i-1];
-    return null;
+    }
+    if ($found==0) {
+      return $this->teams[$i-1];
+    }
+    return $selectedTeam;
   }
 
 /**
@@ -200,7 +202,7 @@ class liga {
     }
     return $result;
   }
-  
+
 /**
  * Gibt die Referenz auf das Partieobjekt zurück, an der die Mannschaften
  * mit den anzugebenen Namen aufeinandertreffen
@@ -458,7 +460,7 @@ class liga {
               $partie = new partie($pCounter,$zeit,$notiz,$heimTeam,$gastTeam,$theim,$tgast,"","");
               $partie->reportUrl = $reportUrl;
               $partie->spielEnde = $spEnde;
-              $partie->setParameter($iniData[$roundSektion][$partienNumber]); // Alle Anderen bisher unbekannten Parameter 
+              $partie->setParameter($iniData[$roundSektion][$partienNumber]); // Alle Anderen bisher unbekannten Parameter
               $this->addPartie($partie);  // Partien werden zusätzlich zu der Liga hinzugefügt
               $spieltag->addPartie($partie);
             }
@@ -578,16 +580,16 @@ class liga {
         $iniData['Round'.$roundCount]['D2']=$spieltag->bisString();
         $x=1;
         foreach ($spieltag->partien as $partie) {
-        	$iniData['Round'.$roundCount]['TA'.$x]=$partie->heim->nr;
-        	$iniData['Round'.$roundCount]['TB'.$x]=$partie->gast->nr;
-        	$iniData['Round'.$roundCount]['GA'.$x]=$partie->hTore;
-        	$iniData['Round'.$roundCount]['GB'.$x]=$partie->gTore;
-        	$iniData['Round'.$roundCount]['AT'.$x]=$partie->zeit;
-        	$iniData['Round'.$roundCount]['NT'.$x]=$partie->notiz;
-        	$iniData['Round'.$roundCount]['BE'.$x]=$partie->reportUrl;
-          foreach ($partie->getParameter() as $otherKey => $otherParameter) { 
-              $iniData['Round'.$roundCount][$otherKey.$x]= $otherParameter;
-            }         
+          $iniData['Round'.$roundCount]['TA'.$x]=$partie->heim->nr;
+          $iniData['Round'.$roundCount]['TB'.$x]=$partie->gast->nr;
+          $iniData['Round'.$roundCount]['GA'.$x]=$partie->hTore;
+          $iniData['Round'.$roundCount]['GB'.$x]=$partie->gTore;
+          $iniData['Round'.$roundCount]['AT'.$x]=$partie->zeit;
+          $iniData['Round'.$roundCount]['NT'.$x]=$partie->notiz;
+          $iniData['Round'.$roundCount]['BE'.$x]=$partie->reportUrl;
+          foreach ($partie->getParameter() as $otherKey => $otherParameter) {
+            $iniData['Round'.$roundCount][$otherKey.$x]= $otherParameter;
+          }
           $x++;
         }
       }
@@ -681,7 +683,7 @@ class liga {
  *    <BR>$myArray[0..n]["mTor"]       Erzielte Gegentore
  *    <BR>$myArray[0..n]["psatz"]       gewonnene Sätze/legs - für DartLiga
  *    <BR>$myArray[0..n]["msatz"]       verlorene Sätze/legs - für DartLiga
- *    <BR>$myArray[0..n]["dsatz"]       Satz Differenz/legs  - für DartLiga 
+ *    <BR>$myArray[0..n]["dsatz"]       Satz Differenz/legs  - für DartLiga
  *    <BR>$myArray[0..n]["dTor"]       Tordifferenz
  *    <BR>$myArray[0..n]["pPkt"]       Pluspunkte
  *    <BR>$myArray[0..n]["mPkt"]       Minuspunkte
@@ -717,7 +719,7 @@ function calcTable($spTag=1) {
       "dTor"=> 0,
       "psatz"=> 0,  // Dart Liga
       "msatz"=> 0,  // Dart Liga
-      "dsatz"=> 0,  // Dart Liga      
+      "dsatz"=> 0,  // Dart Liga
       "pPkt"=> 0,
       "mPkt"=> 0,
       "ser1"=> 0, // neu in 2.5
@@ -750,16 +752,16 @@ function calcTable($spTag=1) {
         $tableArray[$gastCount]["pTor"] += $partie->gTore;
         $tableArray[$heimCount]["mTor"] += $partie->gTore;
       }
-   // Dart Liga   
-      if ($partie->getParameter("SA") > 0) { 
+      // Dart Liga
+      if ($partie->getParameter("SA") > 0) {
         $tableArray[$heimCount]["psatz"] += $partie->getParameter("SA");
         $tableArray[$gastCount]["msatz"] += $partie->getParameter("SA");
       }
-      if ($partie->getParameter("SBA") > 0) {  
+      if ($partie->getParameter("SBA") > 0) {
          $tableArray[$gastCount]["psatz"] += $partie->getParameter("SB");
         $tableArray[$heimCount]["msatz"] += $partie->getParameter("SB");
-      }      
-   // Dart Liga   
+      }
+      // Dart Liga
       if ($partie->hTore>-1 and $partie->gTore>-1) { // Ein normales Ergebnis?
          // Tordifferenz
 //        $tableArray[$heimCount]["dTor"] += $partie->hTore-$partie->gTore;
@@ -854,7 +856,7 @@ function calcTable($spTag=1) {
   $i=0;
   while ($i<count($tableArray)) { // Tordiff.
     $tableArray[$i]["dTor"]=$tableArray[$i]["pTor"]-$tableArray[$i]["mTor"];
-    $tableArray[$i]["dsatz"]= $tableArray[$i]["psatz"]-$tableArray[$i]["msatz"];    
+    $tableArray[$i]["dsatz"]= $tableArray[$i]["psatz"]-$tableArray[$i]["msatz"];
     $i++;
   }
 
@@ -880,7 +882,7 @@ function calcTable($spTag=1) {
           array_multisort($sort_1, SORT_DESC, $sort_2, SORT_DESC,$sort_3, SORT_DESC,$sort_4, SORT_ASC,$sort_5, SORT_DESC,$sort_6, SORT_DESC,$tableArray);
         } else {
           array_multisort($sort_1, SORT_DESC, $sort_2, SORT_DESC, $sort_3, SORT_DESC,$sort_4, SORT_ASC,$tableArray);
-        }  
+        }
   }
 
 //  $tableArray=array_values($tableArray);// Index neu erstellen

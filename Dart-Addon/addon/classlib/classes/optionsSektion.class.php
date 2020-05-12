@@ -1,4 +1,4 @@
-<?
+<?php
 /**
  * OptionSektion
  *
@@ -24,7 +24,7 @@ class optionsSektion extends sektion {
         "Title"=>"Limporter LMO Addon",
         "Name"=>"Liga Name",
         "Type"=>0,
-        "LigaType"=> "fussball",        
+        "LigaType"=> "fussball",
         "Teams"=>0,
         "vonTab"=>0,
         "bisTab"=>0,
@@ -66,7 +66,7 @@ class optionsSektion extends sektion {
         );
 
 
-  function optionsSektion($aLiga="",$optionDetails="") {
+  function __construct($aLiga="",$optionDetails="") {
     $this->name = "Options";
     if ($optionDetails <> "") {
             foreach ($optionDetails as $key=>$values) {
