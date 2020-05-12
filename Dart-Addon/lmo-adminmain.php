@@ -25,7 +25,7 @@ function getmicrotime(){
 }
 $startzeit = getmicrotime();
 // Dart Patch
-$existLigaType = array["sonstiges","handball","fussball","eishockey","dart"];
+$existLigaType = array('sonstiges','handball','fussball','eishockey','dart');
 // Dart Patch
 if($action=="admin"){
   $me=array("0","January","February","March","April","May","June","July","August","September","October","November","December");

@@ -28,6 +28,7 @@ $newpage=isset($_POST['newpage'])?$_POST['newpage']:0;
 $xanzst=isset($_POST['xanzst'])?$_POST['xanzst']:0;
 $xanzsp=isset($_POST['xanzsp'])?$_POST['xanzsp']:0;
 $xteams=isset($_POST['xteams'])?$_POST['xteams']:0;
+//$existLigaType = array('sonstiges','handball','fussball','eishockey','dart');
 
 if ($newpage == 0) {
   if ($xfile == "") {
@@ -228,11 +229,12 @@ if($newpage==0){ ?>
    <!-- Dart Patch -->
           <tr>
             <td width="20">&nbsp;</td>
-            <td class="nobr" align="right"><acronym title="<?php echo  $text[4023] ?>"><?php echo  $text[4024]; ?></acronym></td>
-            <td class="nobr" align="left"><acronym title="<?php echo  $text[4023] ?>">
+            <td class="nobr" align="right"><acronym title="<?php echo  $text['dart'][3]; ?>"><?php echo $text['dart'][4]; ?></acronym></td>
+            <td class="nobr" align="left"><acronym title="<?php echo  $text['dart'][3]; ?>">
               <select class="lmo-formular-input" name="xligaType" onChange="dolmoedit()">
-              <? foreach ($existLigaType as $showLigaType) {
-                 print "<option value='".$showLigaType."' ".($xtype==$showLigaType?'selected="selected"':'').">".($text[$showLigaType]?$text[$showLigaType]:ucfirst($showLigaType))."</option>\n";
+              <?php foreach ($existLigaType as $showLigaType) {
+               //foreach (array("sonstiges","handball","fussball","eishockey","dart") as $showLigaType) {
+                 echo "<option value='".$showLigaType."' ".($xtype==$showLigaType?'selected="selected"':'').">".($text[$showLigaType]?$text[$showLigaType]:ucfirst($showLigaType))."</option>\n";
                } ?>
               </select></acronym>
             </td>

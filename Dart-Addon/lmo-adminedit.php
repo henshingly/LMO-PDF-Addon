@@ -1,4 +1,4 @@
-<?
+<?php
 /** Liga Manager Online 4
   *
   * http://lmo.sourceforge.net/
@@ -427,7 +427,7 @@ if ($file != "") {
     $DartLigaBreite = 4;
   ?>
      <th colspan="<?php echo $DartLigaBreite;?>"> <?php echo $text['dart'][000]?></td>
-  <? $breite += $DartLigaBreite;
+  <?php $breite += $DartLigaBreite;
   endif;
 // Dart Liga Hack Ende
   if($lmtype==0){ ?>
