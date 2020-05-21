@@ -1,2 +1,0 @@
-000=schedule as pdf-document
-001=Creates schedule as a pdf-document

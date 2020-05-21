@@ -1,2 +1,0 @@
-linktarget=_blank
-show_adobe_link=0
