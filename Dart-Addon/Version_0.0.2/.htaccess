@@ -1,20 +1,17 @@
-AddDefaultCharset ISO-8859-15
 # Kommentieren Sie im unteren Bereich aus, falls ihr Server diesen Befehl nicht unterstützt
-# ACHTUNG: IN DIESEM FALL MÜSSEN SIE AUF ANDEREM WEG SICHERSTELLEN, DASS NIEMAND VOM
+# ACHTUNG: IN DIESEM FALL MÜSSEN SIE AUF ANDEREM WEG SICHERSTELLEN, DASS NIEMAND VOM 
 # BROWSER AUS ZUGRIFF AUF DIE DATEIEN ERHÄLT!
 #
 # If you experience problems with following commands you have to comment them out
 # ATTENTION: IN THIS CASE YOU HAVE TO PROTECT THE FILES AGAINST ACCESS BY WEB BROWSERS!
 #
 #
- <FilesMatch "\.(txt|aus|tip|ein|stat|cfg|l98|csv)$">
-        deny from all
+  <FilesMatch "\.(txt|aus|tip|ein|stat|cfg|l98|csv)$">
+	deny from all
   </FilesMatch>
   <Files gpl.txt>
-        allow from all
+	allow from all
   </Files>
-
-SetHandler x-httpd-php53
 
 # Kommentieren Sie im unteren Bereich aus, falls ihr Server diesen Befehl nicht unterstützt
 #
