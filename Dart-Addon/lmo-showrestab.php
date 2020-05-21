@@ -38,7 +38,7 @@ if (isset($file) && $file != "") {
     $breite = $breite+1;
   }
 // Dart Liga
-  if ($ligaType == "dart" ) {
+  if (!isset($ligaType == "dart" )) {
     $breite += 2;
 // geändert Dart-Patch für Tendenz
     $substrwert=50;
