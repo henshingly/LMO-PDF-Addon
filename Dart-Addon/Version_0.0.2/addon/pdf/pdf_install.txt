@@ -1,0 +1,86 @@
+#################################################################################################
+#_______________________Installation: PdfPrint Addon für LMO 4______________________________
+#
+#################################################################################################
+#
+# PdfPrint Addon for LigaManager Online
+# Copyright (C) 2004 by Tim Schumacher
+# webobjects@gmx.net /
+#
+# Systemvoraussetzungen:
+# LMO 4.0 (mindestens Version 4 Beta 3)
+# ClassLib Addon für LMO (BITTE BEACHTEN)
+#
+#################################################################################################
+
+  1.
+  Du hast das Archiv entpackt. Gut so!!
+
+  2.
+  Den Inhalt (tatsächlich nur den Inhalt) des Ordners lmo_root kopierst Du in das Hauptverzeichnis
+  deiner LMO Installation ( z.B. <irgendeinPfad>/lmo ).
+
+  Die Meldung, das der Ordner "addon" bereits existiert bestätigst Du mit OK.
+  Genauso verfährst Du mit dem Ordner "config" bzw "lang". (Keine Sorge, die Ordner werden nicht überschrieben,
+  sondern lediglich um jeweils ein Unterverzeichnis erweitert.)
+
+  Jetzt sollte jeweils ein neues /pdf Verzeichnis in den Verzeichnissen "/addon"
+  sowie "/config" und "lang" Deiner LMO Installation auftauchen.
+
+  4.
+  Da Du den PdfPrinter aber im LMO aufrufst, musst Du noch eine
+  LMO Dateien anpassen (lmo-showmain2.php).
+  Dazu verfahre wie unten beschrieben.
+
+  5.
+  Wenn Du die Anpassungen durchgeführt hast, kannst du den LMO aufrufen.
+  Wenn Du eine Liga ausgewählt hast und dir die Spielergebnisse bzw. die Tabelle anzeigen lässt,
+  sollte unter dem Link Ligaspielplan drucken, der Link Pdf-Document hinzugekommen
+  sein, der in einem neuen Browserfenster den Spielplan als Pdf-Dokument anzeigt.
+  Wenn nicht kontrolliere die Datei lmo-showmain2.php ob die Änderungen tatsächlich vorhanden
+  sind.
+
+  Viel Spass
+  Timme
+
+#################################################################################################
+#                                                                                               #
+#    Folgende Anpassungen sind an deiner LMO - Installation vorzunehmen !!                      #
+#                                                                                               #
+#                             Welche Dateien werden benötigt?                                   #
+#                                 - lmo-showmain2.php                                           #
+#                                                                      #
+#                                                                                               #
+#               Nicht vergessen vorher ein Backup der Dateien zu machen!!!!                     #
+#                                                                                               #
+#                                                                                               #
+#################################################################################################
+
+lmo-adminmain.php:
+
+###########
+Suche nach:
+###########
+
+        </table><?
+      $output_savehtml.=ob_get_contents();ob_end_clean();
+    }
+
+##################################################
+Achtung bitte die abschließende Klammer } beachten
+und danach folgendes einfügen
+##################################################
+    include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
+
+##################################################
+jetzt sollte die betreffene Stelle im Code wie
+folgt aussehen
+##################################################
+        </table><?
+      $output_savehtml.=ob_get_contents();ob_end_clean();
+    }
+    include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
+  }
+  //Ligenübersicht
+
+

@@ -1,0 +1,5 @@
+AddDefaultCharset ISO-8859-15
+ <FilesMatch "\.(htm|html|css|js)$">
+   AddDefaultCharset UTF-8
+  </FilesMatch>
+deny from all
