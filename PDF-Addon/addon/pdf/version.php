@@ -49,18 +49,17 @@ $Path_pdf = PATH_TO_ADDONDIR."/classlib/classes/pdf";
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
-<Title>Version</Title>
+<Title>PDF-Version</Title>
 </HEAD>
 <BODY>
-<p align='center' style='font-family:Verdana,arial,helvetica;font-size:10pt'>
-<table border= '0' cellspacing='0' align='center'>
-  <tr>
-    <td style='font-size=10pt;background-color=#EEEEEE;border-right-style:solid;border-left-style:solid;border-top-style:solid;border-bottom-style:solid;border-width:1px;border-color:#000000'; align='center'><B>Version Control</B><small><BR>
-    <?PHP echo VERSlON;?></small></td>
-  </tr>
-  <tr>
-    <td style='font-size=10pt;background-color=#FFFFFF;border-left-style:solid;border-right-style:solid;border-width:1px;border-color:#000000'; align='left'>
-      <table border= '0' cellspacing='0' align='center'>
+  <p align='center' style='font-family:Verdana,arial,helvetica;font-size:10pt'>
+  <table border= '0' cellspacing='0' align='center'>
+    <tr>
+      <td style='font-size=10pt;background-color=#EEEEEE;border-right-style:solid;border-left-style:solid;border-top-style:solid;border-bottom-style:solid;border-width:1px;border-color:#000000'; align='center'>Version Control<BR><B><?PHP echo VERSlON;?></B></td>
+    </tr>
+    <tr>
+      <td style='font-size=10pt;background-color=#FFFFFF;border-left-style:solid;border-right-style:solid;border-width:1px;border-color:#000000'; align='left'>
+        <table border= '0' cellspacing='0' align='center'>
         <tr>
           <td colspan=4 style='font-size=10pt;background-color=#FFFFFF;border-bottom-style:solid;border-width:1px;border-color:#000000'>&nbsp;<b>Settings</b></td>
         </tr>
@@ -77,24 +76,20 @@ $Path_pdf = PATH_TO_ADDONDIR."/classlib/classes/pdf";
           <td><small><?PHP echo $Path;?></small></td>
         </tr>
         <tr>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-        </tr>
-        <tr>
           <td colspan=4 style='font-size=10pt;background-color=#FFFFFF;border-bottom-style:solid;border-width:1px;border-color:#000000'>&nbsp;</td>
         </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td style='font-size=10pt;background-color=#EEEEEE;border-right-style:solid;border-left-style:solid;border-top-style:solid;border-bottom-style:solid;border-width:1px;border-color:#000000'; align='center'><B>Version Control</B><small><BR>
-    <?PHP echo TEAM_PLAN." ".VERSlONA;?></small></td>
-  </tr>
-  <tr>
-    <td style='font-size=10pt;background-color=#FFFFFF;border-left-style:solid;border-right-style:solid;border-width:1px;border-color:#000000'; align='left'>
-      <table border= '0' cellspacing='0' align='center'>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table border= '0' cellspacing='0' align='center'>
+    <tr>
+      <td style='font-size=10pt;background-color=#EEEEEE;border-right-style:solid;border-left-style:solid;border-top-style:solid;border-bottom-style:solid;border-width:1px;border-color:#000000'; align='center'>Version Control<BR><B><?PHP echo TEAM_PLAN." ".VERSlONA;?></B></td>
+    </tr>
+    <tr>
+      <td style='font-size=10pt;background-color=#FFFFFF;border-left-style:solid;border-right-style:solid;border-width:1px;border-color:#000000'; align='left'>
+        <table border= '0' cellspacing='0' align='center'>
         <tr>
           <td colspan=4 style='font-size=10pt;background-color=#FFFFFF;border-bottom-style:solid;border-width:1px;border-color:#000000'>&nbsp;<b>Settings</b></td>
         </tr>
@@ -111,24 +106,20 @@ $Path_pdf = PATH_TO_ADDONDIR."/classlib/classes/pdf";
           <td><small><?PHP echo $Path;?></small></td>
         </tr>
         <tr>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-        </tr>
-        <tr>
           <td colspan=4 style='font-size=10pt;background-color=#FFFFFF;border-bottom-style:solid;border-width:1px;border-color:#000000'>&nbsp;</td>
         </tr>
-      </table>
-    </td>
-  </tr>
-  <tr>
-    <td style='font-size=10pt;background-color=#EEEEEE;border-right-style:solid;border-left-style:solid;border-top-style:solid;border-bottom-style:solid;border-width:1px;border-color:#000000'; align='center'><B>Version Control</B><small><BR>
-    <?PHP echo ADDON_NAMEPDF;?></small></td>
-  </tr>
-  <tr>
-    <td style='font-size=10pt;background-color=#FFFFFF;border-left-style:solid;border-right-style:solid;border-width:1px;border-color:#000000'; align='left'>
-      <table border= '0' cellspacing='0' align='center'>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <table border= '0' cellspacing='0' align='center'>
+    <tr>
+      <td style='font-size=10pt;background-color=#EEEEEE;border-right-style:solid;border-left-style:solid;border-top-style:solid;border-bottom-style:solid;border-width:1px;border-color:#000000'; align='center'>Version Control<BR><B><?PHP echo ADDON_NAMEPDF;?></B></td>
+    </tr>
+    <tr>
+      <td style='font-size=10pt;background-color=#FFFFFF;border-left-style:solid;border-right-style:solid;border-width:1px;border-color:#000000'; align='left'>
+        <table border= '0' cellspacing='0' align='center'>
         <tr>
           <td colspan=4 style='font-size=10pt;background-color=#FFFFFF;border-bottom-style:solid;border-width:1px;border-color:#000000'>&nbsp;<b>Settings</b></td>
         </tr>
@@ -145,17 +136,11 @@ $Path_pdf = PATH_TO_ADDONDIR."/classlib/classes/pdf";
           <td><small><?PHP echo $Path_pdf;?></small></td>
         </tr>
         <tr>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-          <td>&nbsp</td>
-        </tr>
-        <tr>
           <td colspan=4 style='font-size=10pt;background-color=#FFFFFF;border-bottom-style:solid;border-width:1px;border-color:#000000'>&nbsp;</td>
         </tr>
-      </table>
-    </td>
-  </tr>
-</table>
+        </table>
+      </td>
+    </tr>
+  </table>
 </BODY>
 </HTML>
