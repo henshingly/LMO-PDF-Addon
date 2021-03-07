@@ -8,7 +8,7 @@ Dazu gehören die Addons<br><br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Version 0.0.2 (ein kompletter LMO mit Dart-Hack)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;freundlicherweise zur Verfügung gestellt vom Webmaster Remscheider Dartliga<br><br>
 
-&nbsp;&nbsp;#PDF-Addon (mit den integriertenBestandteilen)<br>
+&nbsp;&nbsp;#PDF-Addon (mit den integrierten Bestandteilen)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Teamvergleich<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-PDF Spielplan<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-PDF Teamplan<br>
