@@ -286,7 +286,7 @@ if ($file <> '') {
     }
   } else {
     $error=TRUE;
-    $message= getMessage($text['pdf'][102],True);
+    $message= getMessage("<b><u>".$text['pdf'][13].":</u></b> ".$file,True);
     $ligaName= $message;
   }
 }

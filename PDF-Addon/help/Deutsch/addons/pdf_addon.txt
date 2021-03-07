@@ -24,23 +24,23 @@ Dieses PDF Addon Paket enthält den offiziellen GIT-Klon der R&OS PHP PDF-Klasse
     1. <c:alink:https://github.com/rospdf/pdf-php/>ROS PHP Pdf creation class</c:alink>
         enthält die Source Dateien der PDF-Klasse
 	   
-    2. <c:alink:https://www.liga-manager-online.de/lmo-forum/viewtopic.php?t=2876/>PDF Spielplan von timme</c:alink>
+    2. <c:alink:https://www.liga-manager-online.de/homepage/homepage/addons/pdf-spielplan.html>PDF Spielplan von timme</c:alink>
         enthält unter anderem die PDF Ausgabedateien pdf-spielplan.php und pdf-tabelle.php
 
-    3. <c:alink:https://www.liga-manager-online.de/lmo-forum/viewtopic.php?t=5489/>PDF Teamplan von plastic</c:alink>
+    3. <c:alink:https://www.liga-manager-online.de/homepage/homepage/addons/teamplan.html>PDF Teamplan von plastic</c:alink>
         enthält unter anderem die PDF Ausgabedatei pdf-teamplan.php
 	
-    4. <c:alink:https://www.liga-manager-online.de/lmo-forum/viewtopic.php?t=3703/>PDF Teamvergleich von plastic</c:alink>
+    4. <c:alink:https://www.liga-manager-online.de/homepage/homepage/addons/teamvergleich.html>PDF Teamvergleich von plastic</c:alink>
         enthält unter anderem die PDF Ausgabedatei stats_viewp.php
 
-Dieses Paket wurde von mir neu geschnürt um diverse festgestellte Bugs zu entfernen und die Möglichkeit der Sprachauswahl aller Dateien zu gewährleisten. Außerdem wurde noch die Verwendbarkeit der Addons unter PHP7 getestet. Bei mir lief es auch unter PHP Version 7.1.6.
-Ich muss außerdem zugeben das ich nicht den LMO 4.0.2a aus dem Download genommen habe sondern den <c:alink:https://sourceforge.net/p/lmo/code/HEAD/tree/trunk/>SVN LMO</c:alink> der auf SourceForge liegt. Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf die <u>SVN_Version</u>.
+Dieses Paket wurde von mir neu geschnürt um diverse festgestellte Bugs zu entfernen und die Möglichkeit der Sprachauswahl aller Dateien zu gewährleisten. Außerdem wurde noch die Verwendbarkeit der Addons unter PHP7 getestet. Bei mir lief es auch unter PHP Version 7.3.3.
+Ich muss außerdem zugeben das ich nicht den originalen <c:alink:https://www.liga-manager-online.de/homepage/homepage/download/>LMO 4.0.2a</c:alink>, von der Webseite www.liga-manager-online.de, genommenhabe. Sondern den LMO mit PHP7 Unterstützung von meiner Webseite. Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf die <u>LMO_PHP7</u> Version.
 
 
 1<Changelog>
 
 
-3<3.0.4>
+3<3.0.5>
   17.03.2019
   - Dateiupdate der R&OS Klasse von 0.12.41 -> 0.12.49
 
@@ -99,24 +99,7 @@ Zur Installation des kompletten Pakets dieses zuerst einmal entpacken. Den entpa
   - img
   - lang
 alle Ordner kopieren und in das Hauptverzeichnis deines LMO's einfügen. Es werden nur einige Schriftarten der alten PDF-Klasse von Wayne Munro, R&OS Ltd überschrieben.
-Zum Einbinden der neuen Version der PDF-Klasse ist eine Änderung in der ini.php im Ordner "LMO_ROOT/addon/classlib/" nötig.
-In Zeile 35 und 36 steht folgendes
-
-#C
-// class pdf
-require_once(PATH_TO_ADDONDIR."/classlib/classes/pdf/class.ezpdf.php");
-#c
-
-diese <b>beiden</b> Codezeilen <u>ändern  </u> in
-
-#C
-// class pdf
-//require_once(PATH_TO_ADDONDIR."/classlib/classes/pdf/class.ezpdf.php");	// Version 0.09
-require_once(PATH_TO_ADDONDIR."/classlib/classes/pdf/Cezpdf.php");			// Version 0.12.38
-#c
-
-Durch das überschreiben der beiden Zeilen Code mit den neuen Zeilen, bleibt danach immer noch der 'alte' Pfad erhalten. Nur eben auskommentiert.
-Die PDF-Klasse ist nun integriert. Weiter geht es mit dem Einbinden der Designoberfläche im Adminmenü.
+Das PDF-ADDON ist nun integriert. Weiter geht es mit dem Einbinden der Designoberfläche, des PDF-ADDON, in das Adminmenü.
 #NP
 1<PDF-Design Oberfläche - Adminmenü>
 
@@ -151,7 +134,6 @@ Die PDF-Klasse ist nun integriert. Weiter geht es mit dem Einbinden der Designob
    danach sollte es so aussehen.
 	 
 #C
-    /*Tippspiel-Addon*/
     /*Viewer-Addon*/
     elseif($todo=="vieweroptions"){
       require(PATH_TO_ADDONDIR."/viewer/lmo-adminvieweroptions.php");
@@ -173,7 +155,7 @@ Die PDF-Klasse ist nun integriert. Weiter geht es mit dem Einbinden der Designob
     /*Viewer-Addon*/
 #c
 
-   Darunter (nach "/*PDF-Addon*/") folgenden Code <b>einfügen</b>.
+   Darunter (<u>nach</u> "/*PDF-Addon*/") folgenden Code <b>einfügen</b>.
 
 #C
     /*PDF-Addon*/
@@ -193,7 +175,8 @@ Die PDF-Klasse ist nun integriert. Weiter geht es mit dem Einbinden der Designob
 #c
 
 3. Änderung
-   kommen wir nun zum letzten einfügen von PHP Code. Die Zeilen 104 - 106 sehen so aus.
+   kommen wir nun zum letzten einfügen von PHP Code in der lmo-admimain.php.
+   Die Zeilen 104 - 106 sehen so aus.
 #C
     echo $text['viewer'][20];
   }
@@ -246,7 +229,7 @@ Unter dem Link 'Ligaspielplan drucken' erscheint der Link 'Ligaspielplan als PDF
    - lmo-showmain2.php
    Diese befindet sich im Hauptverzeichnis Deines LMO's.
    Die Zeilen 239, 240 und 241 sehen folgendermaßen aus.
-	 
+
 #C
         $output_savehtml.=ob_get_contents();ob_end_clean();
   }
@@ -256,7 +239,6 @@ Unter dem Link 'Ligaspielplan drucken' erscheint der Link 'Ligaspielplan als PDF
    nach der <b>ersten</b> schließenden Klammer "}" (Zeile 240) fügst Du folgenden Code ein.
 
 #C
-
   // PDF ADDON BEGIN
   if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php'))
   include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
@@ -264,7 +246,7 @@ Unter dem Link 'Ligaspielplan drucken' erscheint der Link 'Ligaspielplan als PDF
 #c
 
    danach sollte es so aussehen.
-	 
+
 #C
         $output_savehtml.=ob_get_contents();ob_end_clean();
   }
@@ -276,7 +258,7 @@ Unter dem Link 'Ligaspielplan drucken' erscheint der Link 'Ligaspielplan als PDF
 #c
 
 Das war es schon mit der Einbindung des PDF-Addon Spielplan
-
+#NP
 1<PDF Teamplan>
 
 2<Installation>
@@ -285,7 +267,7 @@ Das war es schon mit der Einbindung des PDF-Addon Spielplan
   
   2. Nun öffnest Du folgende Datei aus dem Hauptverzeichnis Deines LMO's
      - lmo-showprogram.php
-     unter die letzte Zeile
+     <u>nach</u> die letzte Zeile (Zeile 161)
 
 #C
 }?>
@@ -302,7 +284,19 @@ include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 ?>
 #c
 
+   danach sollte es so aussehen.
 
+#C
+}?>
+<?php
+// Teamplan ADDON BEGIN
+if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php'))
+include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
+// Teamplan ADDON END
+?>
+#c
+Das war es schon mit der Einbindung des PDF-Addon Teamplan
+#NP
 1<PDF Teamvegleich>
 
 2<Beschreibung>

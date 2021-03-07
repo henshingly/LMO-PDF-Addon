@@ -49,57 +49,56 @@ require_once(dirname(__FILE__).'/../../../init.php');
 require_once(PATH_TO_ADDONDIR."/pdf/ini.php");
 
 class Creport extends Cezpdf {
-    var $reportContents = array();
+  public $reportContents = [];
+  public function __construct($p, $o, $t, $op) {
+    parent::__construct($p, $o, $t, $op);
+  }
 
-    public function __construct($p,$o,$t,$op){
-        parent::__construct($p,$o,$t,$op);
+  function rf($info){
+    $tmp = $info['p'];
+    $lvl = $tmp[0];
+    $lbl = rawurldecode(substr($tmp,1));
+    $num=$this->ezWhatPageNumber($this->ezGetCurrentPageNumber());
+    $this->reportContents[] = array($lbl,$num,$lvl );
+    $this->addDestination('toc'.(count($this->reportContents)-1),'Fit',$info['y']+$info['height']);
+  }
+
+  public function dots($info) {
+    // Zeichne eine gepunktete Linie nach rechts und setze eine Seitenzahl
+    $tmp = $info['p'];
+    $lvl = $tmp[0];
+    $lbl = substr($tmp, 1);
+    $xpos = 520;
+
+    switch ($lvl) {
+      case '1':
+        $size = 16;
+        $thick = 1;
+      break;
+      case '2':
+        $size = 12;
+        $thick = 0.5;
+      break;
     }
 
-    function rf($info){
-        $tmp = $info['p'];
-        $lvl = $tmp[0];
-        $lbl = rawurldecode(substr($tmp,1));
-        $num=$this->ezWhatPageNumber($this->ezGetCurrentPageNumber());
-        $this->reportContents[] = array($lbl,$num,$lvl );
-        $this->addDestination('toc'.(count($this->reportContents)-1),'Fit',$info['y']+$info['height']);
-    }
-
-    function dots($info){
-        $tmp = $info['p'];
-        $lvl = $tmp[0];
-        $lbl = substr($tmp,1);
-        $xpos = 520;
-
-        switch($lvl){
-        case '1':
-            $size=16;
-            $thick=1;
-            break;
-        case '2':
-            $size=12;
-            $thick=0.5;
-            break;
-        }
-
-        $this->saveState();
-        $this->setLineStyle($thick,'round','',[0,2]);
-        $this->line($xpos,$info['y'],$info['x']+5,$info['y']);
-        $this->restoreState();
-        $this->addText($xpos+5,$info['y'],$size,$lbl);
-    }
+    $this->saveState();
+    $this->setLineStyle($thick, 'round', '', [0, 2]);
+    $this->line($xpos, $info['y'], $info['x'] + 5, $info['y']);
+    $this->restoreState();
+    $this->addText($xpos + 5, $info['y'], $size, $lbl);
+  }
 }
 
-$project_url = "https://www.vest-sport.de/files/infusions/downloads/downloads.php";
+$project_url = "https://www.vest-sport.de/forum/viewtopic.php?f=11&t=40";
 $project_lmo_url ="https://www.liga-manager-online.de";
 $pdf_class_url = "https://github.com/rospdf/";
-$project_version = "3.0";
+$project_version = "3.0.1";
 
 $pdf = new Creport('a4','portrait', 'none', null);
 // to test on windows xampp
 if(strpos(PHP_OS, 'WIN') !== false){
     $pdf->tempPath = PATH_TO_LMO.'/output';
 }
-
 $start = microtime(true);
 
 $pdf->allowedTags .= '|uline|rf:?.*?|dots:[0-9]+';
@@ -116,24 +115,23 @@ $pdf->addText(494,30,8,'PDF-Addon Version ' . $project_version);
 $pdf->restoreState();
 $pdf->closeObject();
 $pdf->addObject($all,'all');
-
 $pdf->ezSetDy(-150);
 
 $mainFont = PATH_TO_ADDONDIR.'/classlib/classes/pdf/fonts/Helvetica.afm';
 $codeFont = PATH_TO_ADDONDIR.'/classlib/classes/pdf/fonts/Courier.afm';
 $pdf->selectFont($mainFont);
-if (file_exists(PATH_TO_IMGDIR.'/pdf/lmo.png')){
-  $pdf->addPngFromFile(PATH_TO_IMGDIR.'/pdf/lmo.png', 500, 150, 100, '',0,0);
+if (file_exists(PATH_TO_IMGDIR.'/pdf/lmo.jpg')){
   $pdf->ezText($project_lmo_url,10,array('justification'=>'centre'));
-  $pdf->ezImage($pdfimg, 3, 100, 'none', 'center',0,0);
-$pdf->ezText("PDF Addon\n",30,array('justification'=>'centre'));
-$pdf->ezText("Addons für LMO ab Version 4.0.2\n",20,array('justification'=>'centre'));
-$pdf->ezText("unter zu Hilfenahme von \nPHP Pdf Class Version ".VERSIONPDF." von\n",20,array('justification'=>'centre'));
-$pdf->openHere('Fit');
-if (file_exists(PATH_TO_IMGDIR.'/pdf/ros.jpg')){
-  $pdf->ezText($pdf_class_url,10,array('justification'=>'centre'));
-  $pdf->addJpegFromFile(PATH_TO_IMGDIR.'/pdf/ros.jpg',199,250,200,0);
-}
+  $pdf->ezImage($pdfimg, 1, 250, 'none', 'center',0,0);
+  $pdf->addJpegFromFile(PATH_TO_IMGDIR.'/pdf/lmo.jpg', 246, 640, 100,0);
+  $pdf->ezText("PDF Addon\n",30,array('justification'=>'centre'));
+  $pdf->ezText("Addons für LMO ab Version 4.0.2\n",20,array('justification'=>'centre'));
+  $pdf->ezText("unter zu Hilfenahme von \nPHP Pdf Class Version ".VERSIONPDF." von\n",20,array('justification'=>'centre'));
+  if (file_exists(PATH_TO_IMGDIR.'/pdf/ros.jpg')){
+    $pdf->ezText($pdf_class_url,10,array('justification'=>'centre'));
+    $pdf->addJpegFromFile(PATH_TO_IMGDIR.'/pdf/ros.jpg',230,300,150,0);
+  }
+  $pdf->openHere('Fit');
 }
 
 function ros_logo(&$pdf,$x,$y,$height,$wl=0,$wr=0){
@@ -158,17 +156,7 @@ function ros_logo(&$pdf,$x,$y,$height,$wl=0,$wr=0){
   return $height;
 }
 
-//ros_logo($pdf,100,$pdf->y-80,80,180,300);
 $pdf->selectFont($mainFont);
-
-if (file_exists('ros.jpg')){
-  //$pdf->addJpegFromFile('ros.jpg',199,650,200,0);
-}
-if (file_exists('github.jpg')){
-  $pdf->ezSetDy(-30);
-  $pdf->addJpegFromFile('github.jpg',330,$pdf->y);
-  $pdf->addLink($project_url . 'pdf-php',330,$pdf->y,394,$pdf->y + 64);
-}
 
 //-----------------------------------------------------------
 // load up the document content

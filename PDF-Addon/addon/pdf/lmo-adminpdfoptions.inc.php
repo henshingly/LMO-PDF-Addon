@@ -129,7 +129,7 @@ if(isset($_POST['save']) && $_POST['save']==1){
         <tr><td align="right"><?php if ($show==1) {echo $text['pdf'][204]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=1";?>"><?php echo $text['pdf'][204];?></a><?php }?></td></tr>
         <tr><td align="right"><?php if ($show==2) {echo $text['pdf'][205]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=2";?>"><?php echo $text['pdf'][205];?></a><?php }?></td></tr>
         <tr><td align="right"><?php if ($show==3) {echo $text['pdf'][206]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=3";?>"><?php echo $text['pdf'][206];?></a><?php }?></td></tr>
-        <tr><td align="right"><a target="_blank" href='<?php echo URL_TO_LMO."/addon/pdf/readme.php' title='".$text['pdf'][199]."'>".$text[312] ?></td></tr>
+        <tr><td align="right"><a target="_blank" href='<?php echo URL_TO_LMO."/help/Deutsch/addons/readme.php' title='".$text['pdf'][199]."'>".$text[312] ?></td></tr>
       </table>
     </td>
     <td align="left" valign="top">
@@ -506,28 +506,28 @@ if(isset($_POST['save']) && $_POST['save']==1){
             <td colspan="3" align="center"></td>
           </tr>
           <tr>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][287]?>"><?php echo $text['pdf'][274].": ".$text['pdf'][8];?></acronym></td>
+            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][286]?>"><?php echo $text['pdf'][274].": ".$text['pdf'][8];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_tp_port_Datum" size="1" maxlength="2" value="<?php echo $pdf_tp_port_Datum;?>" onChange="dolmoedit()"></td>
           </tr>
           <tr>
             <td colspan="3" align="center"></td>
           </tr>
           <tr>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][288]?>"><?php echo $text['pdf'][274].": ".$text[549];?></acronym></td>
+            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][287]?>"><?php echo $text['pdf'][274].": ".$text[549];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_tp_port_Zeit" size="1" maxlength="2" value="<?php echo $pdf_tp_port_Zeit;?>" onChange="dolmoedit()"></td>
           </tr>
           <tr>
             <td colspan="3" align="center"></td>
           </tr>
           <tr>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][289]?>"><?php echo $text['pdf'][274].": ".$text[41]."/".$text['pdf'][6];?></acronym></td>
+            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][288]?>"><?php echo $text['pdf'][274].": ".$text[41]."/".$text['pdf'][6];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_tp_port_Team" size="1" maxlength="3" value="<?php echo $pdf_tp_port_Team;?>" onChange="dolmoedit()"></td>
           </tr>
           <tr>
             <td colspan="3" align="center"></td>
           </tr>
           <tr>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][290]?>"><?php echo $text['pdf'][274].": ".$text['pdf'][9];?></acronym></td>
+            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][289]?>"><?php echo $text['pdf'][274].": ".$text['pdf'][9];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_tp_port_Result" size="1" maxlength="2" value="<?php echo $pdf_tp_port_Result;?>" onChange="dolmoedit()"></td>
           </tr>
           <tr>
@@ -555,28 +555,28 @@ if(isset($_POST['save']) && $_POST['save']==1){
             <td colspan="3" align="center"></td>
           </tr>
           <tr>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][287]?>"><?php echo $text['pdf'][274].": ".$text['pdf'][8];?></acronym></td>
+            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][286]?>"><?php echo $text['pdf'][274].": ".$text['pdf'][8];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_tp_land_Datum" size="1" maxlength="2" value="<?php echo $pdf_tp_land_Datum;?>" onChange="dolmoedit()"></td>
           </tr>
           <tr>
             <td colspan="3" align="center"></td>
           </tr>
           <tr>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][288]?>"><?php echo $text['pdf'][274].": ".$text[549];?></acronym></td>
+            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][287]?>"><?php echo $text['pdf'][274].": ".$text[549];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_tp_land_Zeit" size="1" maxlength="2" value="<?php echo $pdf_tp_land_Zeit;?>" onChange="dolmoedit()"></td>
           </tr>
           <tr>
             <td colspan="3" align="center"></td>
           </tr>
           <tr>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][289]?>"><?php echo $text['pdf'][274].": ".$text[41]."/".$text['pdf'][6];?></acronym></td>
+            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][288]?>"><?php echo $text['pdf'][274].": ".$text[41]."/".$text['pdf'][6];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_tp_land_Team" size="1" maxlength="3" value="<?php echo $pdf_tp_land_Team;?>" onChange="dolmoedit()"></td>
           </tr>
           <tr>
             <td colspan="3" align="center"></td>
           </tr>
           <tr>
-            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][290]?>"><?php echo $text['pdf'][274].": ".$text['pdf'][9];?></acronym></td>
+            <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][289]?>"><?php echo $text['pdf'][274].": ".$text['pdf'][9];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_tp_land_Result" size="1" maxlength="2" value="<?php echo $pdf_tp_land_Result;?>" onChange="dolmoedit()"></td>
           </tr>
           <tr>

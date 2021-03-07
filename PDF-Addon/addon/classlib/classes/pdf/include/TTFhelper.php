@@ -1,8 +1,6 @@
 <?php
 
-// require_once('TTFsubset.php');
-// Relative Pfade führten zu Problemen. 28.04.2017 Henshingly
-require_once (PATH_TO_ADDONDIR.'/classlib/classes/pdf/include/TTFsubset.php');
+require_once('TTFsubset.php');
 
 class TTFhelper extends TTFsubset
 {
