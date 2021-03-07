@@ -11,3 +11,4 @@ Dazu gehören die Addons<br><br>
 &nbsp;&nbsp;#PDF-Addon (mit den integriertenBestandteilen)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-Teamvergleich<br>
 &nbsp;&nbsp;&nbsp;&nbsp;-PDF Spielplan<br>
+&nbsp;&nbsp;&nbsp;&nbsp;-PDF Teamplan<br>
