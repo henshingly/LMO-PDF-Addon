@@ -3,7 +3,7 @@
 Dieses PDF Addon Paket enthält den offiziellen GIT-Klon der R&OS PHP PDF-Klasse und 3 PDF Addons verschiedener Autoren
 1.  <a target="_blank" href="https://github.com/rospdf/pdf-php/">ROS PHP Pdf creation class</a> enthält die Source Dateien der PDF-Klasse
 	
-2. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/pdf-spielplan.html/">PDF Spielplan von timme</a> enthält unter anderem die PDF Ausgabedateien pdf-spielplan.php und pdf-tabelle.php
+2. PDF Spielplan von timme enthält unter anderem die PDF Ausgabedateien pdf-spielplan.php und pdf-tabelle.php
 
 3. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/teamplan.html/">PDF Teamplan von plastic</a> enthält unter anderem die PDF Ausgabedatei pdf-teamplan.php
 
@@ -18,10 +18,12 @@ Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf
 
 Changelog
 
-
 3.1.0
   30.03.2021
-  - Dateiupdate der R&OS Klasse von 0.12.41 -> 0.12.49
+
+  - Dateiupdate der R&OS Klasse von 0.12.49 -> 0.12.63
+  - Ausgabe der PDF Dateien per bootstrap modal, die Installation dieses Updates setzt ein Update des LMO_ PHP7 voraus. Denn dort liegen die benötigten neuen und die umgeschriebenen Dateien vor.
+    Dadurch fällt die Einstellung im Adminmenü, unter "Globale Einstellungen", weg ob die Ausgabe im gleichen Tab (target='self') oder in einem neuen Tab (target='blank') erfolgen soll.
 
 3.0.5
   17.03.2019
