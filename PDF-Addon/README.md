@@ -18,18 +18,23 @@ Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf
 
 Changelog
 
-3<3.0.5>
+
+3.1.0
+  30.03.2021
+  - Dateiupdate der R&OS Klasse von 0.12.41 -> 0.12.49
+  
+3.0.5
   17.03.2019
   - Dateiupdate der R&OS Klasse von 0.12.41 -> 0.12.49
 
-3<3.0.3>
+3.0.3
   03.08.2017
   - Dateiupdate der R&OS Klasse von 0.12.40 -> 0.12.41
   - sortierte Ausgabe der Partien eines Spieltages in pdf-tabelle.php und 
     pdf-spielplan.php (wenn in den Grundeistellungen des Ligenfiles dieses
     eingestellt wurde "->Datumssortierung<-". Ansonsten Ausgabe wie in der Adminansicht)
 
-3<3.0.2>
+3.0.2
   19.07.2017
   - Dateiupdate der R&OS Klasse von 0.12.39 -> 0.12.40
   - Ausgabe der Mannschaftsicon in den Tabellen und Spielplänen mittels
@@ -40,29 +45,29 @@ Changelog
     und einer function findImage() als function findImagePDF() in die ini.php.
 
 
-3<3.0.1>
+3.0.1
   08.07.2017
   - Dateiupdate der R&OS Klasse von 0.12.38 -> 0.12.39
 
 
-3<3.0rc>
+3.0rc
   28.04.2017
   - Einbindung aller einzelnen Addons in einer Addonoberfläche im Adminmenü
   - Anpassungen an PHP 7
   - Dateiupdate der R&OS PDF-Klasse von 0.11.6 -> 0.12.38
 
 
-3<2.3>
+2.3
   10.01.2013
   - Update der alten PDF-Klasse aus dem CSV-Download des LMO's. Von 0.0.9 -> 0.11.6
 
 
-3<2.2>
+2.2
   16.12.2012
-  - Anpassungen der Originalen PDF Addons aus dem Forum des <c:alink:https://www.liga-manager-online.de/lmo-forum/>LMO</a>.
-#NP
+  - Anpassungen der Originalen PDF Addons aus dem Forum des <a target="_blank" href="https://www.liga-manager-online.de/lmo-forum/>LMO</a>.
 
-1<R&OS PHP PDF Class>
+
+R&OS PHP PDF Class
 Die R&OS Pdf-Klasse wird verwendet um PDF-Dokumente mit PHP zu erzeugen. Dabei werden keine zusätzlichen Module oder Erweiterungen installiert.
 Die R&OS PDF-Klasse kommt mit einer Basisklasse namens "Cpdf.php". Zusätzlich noch mit einer Hilfs-Klasse "Cezpdf.php", um Tabellen zu generieren,
 Hintergründe hinzuzufügen und Paging zu bieten.
@@ -72,7 +77,7 @@ Die neue Version unterstüzt nun auch UTF-8. Bzw. es werden nicht UTF-8 kodierte
 Die neuen Dateien der Klasse überschreiben einige alte aus dem Download der CSV-Version des LMO's.
 
 
-2<Installation>
+Installation
 Zur Installation des kompletten Pakets dieses zuerst einmal entpacken. Den entpackten Ordner "lmo_root" öffnen nun sollten dort einige Ordner zu sehen sein. Diese heißen -
   - addons
   - config
@@ -83,10 +88,12 @@ alle Ordner kopieren und in das Hauptverzeichnis deines LMO's einfügen.
 Es werden nur einige Schriftarten der alten PDF-Klasse von Wayne Munro, R&OS Ltd überschrieben.
 Das PDF-ADDON ist nun integriert. Weiter geht es mit dem Einbinden der Designoberfläche, des PDF-ADDON, in das Adminmenü.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-1<PDF-Design Oberfläche - Adminmenü>
 
-2<Installation>
+PDF-Design Oberfläche - Adminmenü
+
+Installation
 
 1. Zuerst einmal wurden alle Dateien schon in Dein LMO Hauptverzeichnis kopiert? Wenn Du diese Frage mit "JA" beantworten kannst dann geht es weiter.
 
@@ -199,9 +206,9 @@ der gesamte Codebereich sollte nun so aussehen.
 
 Das war es auch schon für diesen Teil mit den Änderungen im Code. Die oberen 3 Codeänderungen haben nun die Ansicht des Adminbereiches um einen neuen Menüpunkt erweitert.
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-1<PDF Spielplan>
+PDF Spielplan
 
 Ermöglicht das Erstellen von Spielplänen im PDF-Format.
 Nach der erfolreichen Einbindung erscheint unterhalb der Links 'Aktuellen Spieltag drucken' ein weiterer Link namens 'Spieltag als PDF-Dokument'.
@@ -249,15 +256,15 @@ danach sollte es so aussehen.
 
 Das war es schon mit der Einbindung des PDF-Addon Spielplan
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-1<PDF Teamplan>
+PDF Teamplan
 
 Ermöglicht die Ausgabe im Link Spielpläne des LMO in einer PDF Ausgabe.
 Hier werden die gezeigten Partien (der ganzen Session) einer ausgewählten Mannschaft als PDF-Dokument dargestellt.
 Nach der Installation erscheint unterhalb des Auswahlfensters 'Spielpläne' ein neuer Link 'Spielplan als PDF-Dokument'.
 
-2<Installation>
+Installation
 
 1. Zuerst einmal, du hast die Dateien aus der Installation der R&OS PHP PDF Class schon in Deinen LMO kopierst.
 
