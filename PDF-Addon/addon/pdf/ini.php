@@ -43,9 +43,9 @@
 **/
 
 require_once(PATH_TO_ADDONDIR."/classlib/ini.php");
-if (!defined('VERSIONPDF'))    define('VERSIONPDF','0.12.49'); //Versionsnummer PDF-Class
-if (!defined('VERSIONA'))      define('VERSIONA','3.0.1');     //Versionsnummer Teamplan
-if (!defined('VERSION'))       define('VERSION','3.0.1');      //Versionsnummer Spielplan 
+if (!defined('VERSIONPDF'))    define('VERSIONPDF','0.12.63'); //Versionsnummer PDF-Class
+if (!defined('VERSIONA'))      define('VERSIONA','3.1.0');     //Versionsnummer Teamplan
+if (!defined('VERSION'))       define('VERSION','3.1.5');      //Versionsnummer Spielplan 
 if (!defined('ADDON_NAMEPDF')) define('ADDON_NAMEPDF','ROS PHP Pdf creation class');
 if (!defined('ADDON_NAMEA'))   define('ADDON_NAMEA','Teamplan');
 if (!defined('ADDON_NAME'))    define('ADDON_NAME','Spielplan');
