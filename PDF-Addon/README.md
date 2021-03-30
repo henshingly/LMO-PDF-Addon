@@ -12,7 +12,7 @@ Dieses PDF Addon Paket enthält den offiziellen GIT-Klon der R&OS PHP PDF-Klasse
 Dieses Paket wurde von mir neu geschnürt um diverse festgestellte Bugs zu entfernen und die Möglichkeit der Sprachauswahl aller Dateien zu gewährleisten.
 Außerdem wurde noch die Verwendbarkeit der Addons unter PHP7 getestet. Bei mir lief es auch unter PHP Version 7.3.3.
 Ich muss außerdem zugeben das ich nicht den originalen <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/download/>LMO 4.0.2a</a>,
-von der Webseite www.liga-manager-online.de, genommenhabe. Sondern den LMO mit PHP7 Unterstützung von meiner Webseite.
+von der Webseite www.liga-manager-online.de, genommen habe. Sondern den LMO mit PHP7 Unterstützung von meiner Webseite.
 Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf die <u>LMO_PHP7</u> Version.
 
 
@@ -64,7 +64,7 @@ Changelog
 
 2.2
   16.12.2012
-  - Anpassungen der Originalen PDF Addons aus dem Forum des <a target="_blank" href="https://www.liga-manager-online.de/lmo-forum/>LMO</a>.
+  - Anpassungen der Originalen PDF Addons aus dem Forum des <a target="_blank" href="https://www.liga-manager-online.de/lmo-forum/">LMO</a>.
 
 
 R&OS PHP PDF Class
@@ -104,11 +104,12 @@ Diese befindet sich im Hauptverzeichnis Deine's LMO's.
 1. Änderung
 Die Zeilen 206 - 210 sehen folgendermaßen aus.
 
-    /*Viewer-Addon*/
+
+    `/*Viewer-Addon*/
     elseif($todo=="vieweroptions"){
       require(PATH_TO_ADDONDIR."/viewer/lmo-adminvieweroptions.php");
     }
-    /*Viewer-Addon*/
+    /*Viewer-Addon*/`
 
 
 unter die letzte Zeile
@@ -116,17 +117,17 @@ unter die letzte Zeile
 fügst Du folgenden Code ein.
 
 
-    /*PDF-Addon*/
+    `/*PDF-Addon*/
     elseif($todo=="pdfoptions"){
       require(PATH_TO_ADDONDIR."/pdf/lmo-adminpdfoptions.inc.php");
     }
-    /*PDF-Addon*/
+    /*PDF-Addon*/`
 
 
 danach sollte es so aussehen.
 
 
-    /*Viewer-Addon*/
+    `/*Viewer-Addon*/
     elseif($todo=="vieweroptions"){
       require(PATH_TO_ADDONDIR."/viewer/lmo-adminvieweroptions.php");
     }
@@ -135,63 +136,65 @@ danach sollte es so aussehen.
     elseif($todo=="pdfoptions"){
       require(PATH_TO_ADDONDIR."/pdf/lmo-adminpdfoptions.inc.php");
     }
-    /*PDF-Addon*/
+    /*PDF-Addon*/`
 
 
 
 2. Änderung
 Nun zum nächsten Codeeinfügen. Es sind die Zeilen 150 - 152. Die sollten so aussehen.
 
-    /*Viewer-Addon*/
+
+    `/*Viewer-Addon*/
     $viewer_addr_optionen = $_SERVER['PHP_SELF']."?action=admin&amp;todo=vieweroptions";
-    /*Viewer-Addon*/
+    /*Viewer-Addon*/`
 
 
 Darunter (<u>nach</u> "/*PDF-Addon*/") folgenden Code einfügen.
 
 
-    /*PDF-Addon*/
+    `/*PDF-Addon*/
     $pdf_addr_optionen = $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions";
-    /*PDF-Addon*/
+    /*PDF-Addon*/`
 
 
 der Codebereich sollte nun so aussehen.
 
 
-    /*Viewer-Addon*/
+    `/*Viewer-Addon*/
     $viewer_addr_optionen = $_SERVER['PHP_SELF']."?action=admin&amp;todo=vieweroptions";
     /*Viewer-Addon*/
     /*PDF-Addon*/
     $pdf_addr_optionen = $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions";
-    /*PDF-Addon*/
+    /*PDF-Addon*/`
 
 
 3. Änderung
 kommen wir nun zum letzten einfügen von PHP Code in der lmo-admimain.php.
 Die Zeilen 104 - 106 sehen so aus.
 
-    echo $text['viewer'][20];
+
+    `echo $text['viewer'][20];
   }
-  /*Viewer-Addon*/
+  /*Viewer-Addon*/`
 
 
 darunter nun den letzten Code einfügen. (wieder nach dem "/*Viewer-Addon*/")
 
 
-  /*PDF-Addon*/
+  `/*PDF-Addon*/
   echo "&nbsp;";
   if (($todo!="pdfoptions")){
     echo "<a href='{$adda}pdfoptions' onclick='return chklmolink();' title='{$text['pdf'][201]}'>{$text['pdf'][200]}</a>";
   } else {
     echo $text['pdf'][200];
   }
-  /*PDF-Addon*/
+  /*PDF-Addon*/`
 
 
 der gesamte Codebereich sollte nun so aussehen.
 
 
-    echo $text['viewer'][20];
+    `echo $text['viewer'][20];
   }
   /*Viewer-Addon*/
   /*PDF-Addon*/
@@ -201,7 +204,7 @@ der gesamte Codebereich sollte nun so aussehen.
   } else {
     echo $text['pdf'][200];
   }
-  /*PDF-Addon*/
+  /*PDF-Addon*/`
 
 
 Das war es auch schon für diesen Teil mit den Änderungen im Code. Die oberen 3 Codeänderungen haben nun die Ansicht des Adminbereiches um einen neuen Menüpunkt erweitert.
@@ -227,31 +230,30 @@ Diese befindet sich im Hauptverzeichnis Deines LMO's.
 Die Zeilen 244, 245 und 246 sehen folgendermaßen aus.
 
 
-        $output_savehtml.=ob_get_contents();ob_end_clean();
+        `$output_savehtml.=ob_get_contents();ob_end_clean();
   }
-}
+}`
 
 
 nach der ERSTEN schließenden Klammer "}" (Zeile 245) fügst Du folgenden Code ein.
 
 
-  // PDF ADDON BEGIN
+  `// PDF ADDON BEGIN
   if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php'))
   include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
-  // PDF ADDON END
+  // PDF ADDON END`
 
 
 danach sollte es so aussehen.
 
 
-
-        $output_savehtml.=ob_get_contents();ob_end_clean();
+        `$output_savehtml.=ob_get_contents();ob_end_clean();
   }
   // PDF ADDON BEGIN
   if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php'))
   include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
   // PDF ADDON END
-}
+}`
 
 
 Das war es schon mit der Einbindung des PDF-Addon Spielplan
@@ -272,18 +274,19 @@ Installation
      - lmo-showprogram.php
 nach die letzte Zeile (Zeile 161)
 
-}?>
+
+`}?>`
 
 
 folgendes einfügen
 
 
-<?php
+`<?php
 // Teamplan ADDON BEGIN
 if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php'))
 include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 // Teamplan ADDON END
-?>
+?>`
 
 
 danach sollte es so aussehen.
@@ -296,5 +299,6 @@ if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php'))
 include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 // Teamplan ADDON END
 ?>
+
 
 Das war es schon mit der Einbindung des PDF-Addon Teamplan
