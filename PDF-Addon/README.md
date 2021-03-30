@@ -3,21 +3,21 @@
 
 Dieses PDF Addon Paket enthält den offiziellen GIT-Klon der R&OS PHP PDF-Klasse und 3 PDF Addons verschiedener Autoren
 
-    1. <c:alink:https://github.com/rospdf/pdf-php/>ROS PHP Pdf creation class</c:alink>
+    1.  <a target="_blank" href="https://github.com/rospdf/pdf-php/">ROS PHP Pdf creation class</a>
         enthält die Source Dateien der PDF-Klasse
 	   
-    2. <c:alink:https://www.liga-manager-online.de/homepage/homepage/addons/pdf-spielplan.html>PDF Spielplan von timme</c:alink>
+    2. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/pdf-spielplan.html/">PDF Spielplan von timme</a>
         enthält unter anderem die PDF Ausgabedateien pdf-spielplan.php und pdf-tabelle.php
 
-    3. <c:alink:https://www.liga-manager-online.de/homepage/homepage/addons/teamplan.html>PDF Teamplan von plastic</c:alink>
+    3. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/teamplan.html/">PDF Teamplan von plastic</a>
         enthält unter anderem die PDF Ausgabedatei pdf-teamplan.php
 	
-    4. <c:alink:https://www.liga-manager-online.de/homepage/homepage/addons/teamvergleich.html>PDF Teamvergleich von plastic</c:alink>
+    4. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/teamvergleich.html/">PDF Teamvergleich von plastic</a>
         enthält unter anderem die PDF Ausgabedatei stats_viewp.php
 
 Dieses Paket wurde von mir neu geschnürt um diverse festgestellte Bugs zu entfernen und die Möglichkeit der Sprachauswahl aller Dateien zu gewährleisten.
 Außerdem wurde noch die Verwendbarkeit der Addons unter PHP7 getestet. Bei mir lief es auch unter PHP Version 7.3.3.
-Ich muss außerdem zugeben das ich nicht den originalen <c:alink:https://www.liga-manager-online.de/homepage/homepage/download/>LMO 4.0.2a</c:alink>,
+Ich muss außerdem zugeben das ich nicht den originalen <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/download/>LMO 4.0.2a</a>,
 von der Webseite www.liga-manager-online.de, genommenhabe. Sondern den LMO mit PHP7 Unterstützung von meiner Webseite.
 Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf die <u>LMO_PHP7</u> Version.
 
@@ -66,7 +66,7 @@ Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf
 
 3<2.2>
   16.12.2012
-  - Anpassungen der Originalen PDF Addons aus dem Forum des <c:alink:https://www.liga-manager-online.de/lmo-forum/>LMO</c:alink>.
+  - Anpassungen der Originalen PDF Addons aus dem Forum des <c:alink:https://www.liga-manager-online.de/lmo-forum/>LMO</a>.
 #NP
 
 1<R&OS PHP PDF Class>
