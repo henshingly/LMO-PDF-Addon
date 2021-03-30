@@ -13,6 +13,7 @@
 012=Download Adobe Reader
 013=Error loading the league
 014=<- Currently without function
+015=PDF
 100=Match Schedule as pdf-document
 101=Created from the Match Schedule a pdf-document and displays it.
 102=Error: League not found!
@@ -33,8 +34,8 @@
 201=Settings for the PDF design
 202=PDF-addon 3.0 &copy; Henshingly
 203=Global Settings
-204=PDF Table
-205=PDF Schedule
+204=Matchday
+205=Schedule
 206=PDF Team Plan
 207=View Adobe link
 208=Link the PDF documents to a new window / tab (target = '_ blank')
@@ -119,3 +120,4 @@
 287=Specify the column width for the time
 288=Specify the width of the two columns for the team names
 289=Specify the column width for the result
+290=Close PDF

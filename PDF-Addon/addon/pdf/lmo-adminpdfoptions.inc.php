@@ -126,8 +126,8 @@ if(isset($_POST['save']) && $_POST['save']==1){
     <td valign="top" align="left">
       <table class="lmoMenu" cellspacing="0" cellpadding="0" border="0">
         <tr><td align="right"><?php if ($show==0) {echo $text['pdf'][203]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=0";?>"><?php echo $text['pdf'][203];?></a><?php }?></td></tr>
-        <tr><td align="right"><?php if ($show==1) {echo $text['pdf'][204]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=1";?>"><?php echo $text['pdf'][204];?></a><?php }?></td></tr>
-        <tr><td align="right"><?php if ($show==2) {echo $text['pdf'][205]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=2";?>"><?php echo $text['pdf'][205];?></a><?php }?></td></tr>
+        <tr><td align="right"><?php if ($show==1) {echo $text['pdf'][15]." ".$text['pdf'][204]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=1";?>"><?php echo $text['pdf'][15]." ".$text['pdf'][204];?></a><?php }?></td></tr>
+        <tr><td align="right"><?php if ($show==2) {echo $text['pdf'][15]." ".$text['pdf'][205]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=2";?>"><?php echo $text['pdf'][15]." ".$text['pdf'][205];?></a><?php }?></td></tr>
         <tr><td align="right"><?php if ($show==3) {echo $text['pdf'][206]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=3";?>"><?php echo $text['pdf'][206];?></a><?php }?></td></tr>
         <tr><td align="right"><a target="_blank" href='<?php echo URL_TO_LMO."/help/Deutsch/addons/readme.php' title='".$text['pdf'][199]."'>".$text[312] ?></td></tr>
       </table>
@@ -138,7 +138,8 @@ if(isset($_POST['save']) && $_POST['save']==1){
         <input type="hidden" name="todo" value="pdfoptions">
         <input type="hidden" name="save" value="1">
         <input type="hidden" name="show" value="<?php echo $show?>">
-        <table class="lmoInner" cellspacing="0" cellpadding="0" border="0"><?php if ($show==0) {?>
+        <table class="lmoInner" cellspacing="0" cellpadding="0" border="0">
+<?php if ($show==0) {?>
           <tr>
             <th colspan="3"><?php echo $text['pdf'][203] ?></th>
           </tr>
@@ -248,9 +249,10 @@ if(isset($_POST['save']) && $_POST['save']==1){
           <tr>
             <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][225]?>"><?php echo $text['pdf'][224];?></acronym></td>
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_lmo_pdf_Distance_Lower_Edge" size="5" maxlength="10" value="<?php echo $pdf_lmo_pdf_Distance_Lower_Edge;?>" onChange="dolmoedit()"></td>
-          </tr><?php } elseif ($show==1) {?>
+          </tr>
+<?php } elseif ($show==1) {?>
           <tr>
-            <th colspan="3"><?php echo $text['pdf'][204] ?></th>
+            <th colspan="3"><?php echo $text['pdf'][15]." ".$text['pdf'][204] ?></th>
           </tr>
           <tr>
             <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][262]?>"><?php echo $text['pdf'][265]?></acronym></td>
@@ -327,7 +329,24 @@ if(isset($_POST['save']) && $_POST['save']==1){
           </tr>
           <tr>
             <td class="nobr" align="right"><?php echo $text['pdf'][281]." ".$text['pdf'][283];?></td>
-            <td class="nobr" colspan="2"><a target="_blank" href="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_tableformat.php" title="<?php echo $text['pdf'][233]?>"><?php echo $text['pdf'][282]?></a></td>
+            <td>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Example_Matchday"><?php echo $text['pdf'][282]?></button>
+              <!-- Modal -->
+              <div id="myModal_Example_Matchday" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-xl">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <embed src="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_matchdayformat.php" frameborder="0" width="100%" height="500px">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
           </tr>
           <tr>
             <td colspan="3"></td>
@@ -371,7 +390,24 @@ if(isset($_POST['save']) && $_POST['save']==1){
           </tr>
           <tr>
             <td class="nobr" align="right"><?php echo $text['pdf'][281]." ".$text['pdf'][283];?></td>
-            <td class="nobr" colspan="2"><a target="_blank" href="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_tableformat.php" title="<?php echo $text['pdf'][233]?>"><?php echo $text['pdf'][282]?></a></td>
+            <td>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Example_Table"><?php echo $text['pdf'][282]?></button>
+              <!-- Modal -->
+              <div id="myModal_Example_Table" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-xl">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <embed src="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_tableformat.php" frameborder="0" width="100%" height="500px">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
           </tr>
           <tr>
             <td colspan="3"></td>
@@ -381,9 +417,10 @@ if(isset($_POST['save']) && $_POST['save']==1){
           </tr>
           <tr>
             <td width="20">&nbsp;</td>
-          </tr><?php } elseif ($show==2) {?>
+          </tr>
+<?php } elseif ($show==2) {?>
           <tr>
-            <th colspan="3"><?php echo $text['pdf'][205] ?></th>
+            <th colspan="3"><?php echo $text['pdf'][15]." ".$text['pdf'][205] ?></th>
           </tr>
           <tr>
             <td class="nobr" align="right"><acronym title="<?php echo $text[438]?>"><?php echo $text[437].": ".$text[537]." ".$text[16];?></acronym></td>
@@ -425,7 +462,24 @@ if(isset($_POST['save']) && $_POST['save']==1){
           </tr>
           <tr>
             <td class="nobr" align="right"><?php echo $text['pdf'][281]." ".$text['pdf'][283];?></td>
-            <td class="nobr" colspan="2"><a target="_blank" href="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_tableformat.php" title="<?php echo $text['pdf'][233]?>"><?php echo $text['pdf'][282]?></a></td>
+            <td>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Example_Matchday"><?php echo $text['pdf'][282]?></button>
+              <!-- Modal -->
+              <div id="myModal_Example_Matchday" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-xl">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <embed src="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_matchdayformat.php" frameborder="0" width="100%" height="500px">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
           </tr>
           <tr>
             <td colspan="3"></td>
@@ -435,7 +489,8 @@ if(isset($_POST['save']) && $_POST['save']==1){
           </tr>
           <tr>
             <td width="20">&nbsp;</td>
-          </tr><?php } elseif ($show==3) {?>
+          </tr>
+<?php } elseif ($show==3) {?>
           <tr>
             <th colspan="3"><?php echo $text['pdf'][206] ?></th>
           </tr>

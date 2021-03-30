@@ -1,6 +1,6 @@
 <?php
 /** This file is part of Pdf Addon for LMO 4.
-..* Copyright (C) 2017 by Dietmar Kersting
+..* Copyright (C) 2021 by Dietmar Kersting
 ..*
 ..* MINITABLE Addon for LigaManager Online (pdf-tabelle.php and pdf-spielplan.php)
 ..* Copyright (C) 2003 by Tim Schumacher
@@ -78,23 +78,32 @@ $pdf->closeObject();
 $pdf->addObject($all,'all');
 
 $data = array(
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => '1. FC Köln', 'Gast'          => 'FSV Mainz 05', 'Ergebniss'         => '2 : 0'),
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => 'Bayern München', 'Gast'      => 'SC Freiburg ', 'Ergebniss'         => '4 : 1'),
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => 'Borussia Dortmund', 'Gast'   => 'Werder Bremen ', 'Ergebniss'       => '4 : 3'),
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => 'Borussia M´gladbach', 'Gast' => 'SV Darmstadt 98', 'Ergebniss'      => '2 : 2'),
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => 'Eintracht Frankfurt', 'Gast' => 'RB Leipzig', 'Ergebniss'           => '2 : 2'),
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => 'FC Ingolstadt', 'Gast'       => 'FC Schalke 04 ', 'Ergebniss'       => '1 : 1'),
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => 'Hamburger SV', 'Gast'        => 'VfL Wolfsburg', 'Ergebniss'        => '2 : 1'),
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => 'Hertha BSC', 'Gast'          => 'Bayer 04 Leverkusen ', 'Ergebniss' => '2 : 6'),
-  array('Datum' => '20.05.2017', 'Uhrzeit' => '15:30', 'Heim' => 'TSG Hoffenheim', 'Gast'      => 'FC Augsburg ', 'Ergebniss'         => '0 : 0'),
+  array('Platz' => '1',  'Mannschaft' => 'Bayer 04 Leverkusen', 'Spiele' => '8', 's' => '6', 'u' => '2', 'n' => '0', '+Tore' => '18', '-Tore' => '5',  'Diff.' => '13',  'Pkt' => '20'),
+  array('Platz' => '2',  'Mannschaft' => 'Hamburger SV',        'Spiele' => '8', 's' => '6', 'u' => '2', 'n' => '0', '+Tore' => '20', '-Tore' => '8',  'Diff.' => '12',  'Pkt' => '20'),
+  array('Platz' => '3',  'Mannschaft' => 'FC Schalke 04',       'Spiele' => '8', 's' => '5', 'u' => '1', 'n' => '2', '+Tore' => '11', '-Tore' => '5',  'Diff.' => '6',   'Pkt' => '16'),
+  array('Platz' => '4',  'Mannschaft' => 'Werder Bremen',       'Spiele' => '8', 's' => '4', 'u' => '3', 'n' => '1', '+Tore' => '14', '-Tore' => '6',  'Diff.' => '8',   'Pkt' => '15'),
+  array('Platz' => '5',  'Mannschaft' => 'TSG Hoffenheim',      'Spiele' => '8', 's' => '4', 'u' => '2', 'n' => '2', '+Tore' => '15', '-Tore' => '7',  'Diff.' => '8',   'Pkt' => '14'),
+  array('Platz' => '6',  'Mannschaft' => 'FSV Mainz 05',        'Spiele' => '8', 's' => '4', 'u' => '2', 'n' => '2', '+Tore' => '12', '-Tore' => '13', 'Diff.' => '-1',  'Pkt' => '14'),
+  array('Platz' => '7',  'Mannschaft' => 'VfL Wolfsburg',       'Spiele' => '8', 's' => '4', 'u' => '1', 'n' => '3', '+Tore' => '16', '-Tore' => '15', 'Diff.' => '1',   'Pkt' => '13'),
+  array('Platz' => '8',  'Mannschaft' => 'Bayern München',      'Spiele' => '8', 's' => '3', 'u' => '3', 'n' => '2', '+Tore' => '13', '-Tore' => '7',  'Diff.' => '6',   'Pkt' => '12'),
+  array('Platz' => '9',  'Mannschaft' => 'Eintracht Frankfurt', 'Spiele' => '8', 's' => '2', 'u' => '4', 'n' => '2', '+Tore' => '8',  '-Tore' => '10', 'Diff.' => '-2',  'Pkt' => '10'),
+  array('Platz' => '10', 'Mannschaft' => 'SC Freiburg',         'Spiele' => '8', 's' => '3', 'u' => '1', 'n' => '4', '+Tore' => '13', '-Tore' => '17', 'Diff.' => '-4',  'Pkt' => '10'),
+  array('Platz' => '11', 'Mannschaft' => 'Hannover 96',         'Spiele' => '8', 's' => '2', 'u' => '3', 'n' => '3', '+Tore' => '11', '-Tore' => '10', 'Diff.' => '1',   'Pkt' => '9'),
+  array('Platz' => '12', 'Mannschaft' => 'Borussia Dortmund',   'Spiele' => '8', 's' => '2', 'u' => '3', 'n' => '3', '+Tore' => '7',  '-Tore' => '13', 'Diff.' => '-6',  'Pkt' => '9'),
+  array('Platz' => '13', 'Mannschaft' => 'VfB Stuttgart',       'Spiele' => '8', 's' => '2', 'u' => '2', 'n' => '4', '+Tore' => '9',  '-Tore' => '12', 'Diff.' => '-3',  'Pkt' => '8'),
+  array('Platz' => '14', 'Mannschaft' => 'VfL Bochum',          'Spiele' => '8', 's' => '2', 'u' => '2', 'n' => '4', '+Tore' => '9',  '-Tore' => '15', 'Diff.' => '-6',  'Pkt' => '8'),
+  array('Platz' => '15', 'Mannschaft' => 'Borussia M´gladbach', 'Spiele' => '8', 's' => '2', 'u' => '1', 'n' => '5', '+Tore' => '9',  '-Tore' => '16', 'Diff.' => '-7',  'Pkt' => '7'),
+  array('Platz' => '16', 'Mannschaft' => '1. FC Köln',          'Spiele' => '8', 's' => '1', 'u' => '2', 'n' => '5', '+Tore' => '5',  '-Tore' => '10', 'Diff.' => '-5',  'Pkt' => '5'),
+  array('Platz' => '17', 'Mannschaft' => '1. FC Nürnberg',      'Spiele' => '8', 's' => '1', 'u' => '2', 'n' => '5', '+Tore' => '4',  '-Tore' => '12', 'Diff.' => '-8',  'Pkt' => '5'),
+  array('Platz' => '18', 'Mannschaft' => 'Hertha BSC',          'Spiele' => '8', 's' => '1', 'u' => '0', 'n' => '7', '+Tore' => '7',  '-Tore' => '20', 'Diff.' => '-13', 'Pkt' => '3'),
 );
-$cols = array('Datum' => 'Datum', 'Uhrzeit' => 'Uhrzeit', 'Heim' => 'Heim', 'Gast' => 'Gast', 'Ergebniss' => 'Ergebniss');
-$coloptions = array('Datum' => array('justification' => 'center'), 'Uhrzeit' => array('justification' => 'center'), 'Heim' => array('justification' => 'right'), 'Gast' => array('justification' => 'left'), 'Ergebniss' => array('justification' => 'center'));
+$cols = array('Platz' => 'Platz', 'Mannschaft' => 'Mannschaft', 'Spiele' => 'Spiele', 's' => 's', 'u' => 'u', 'n' => 'n', '+Tore' => '+Tore', '-Tore' => '-Tore', 'Diff' => 'Diff', 'Pkt' => 'Pkt');
+$coloptions = array('Platz' => array('justification' => 'center'), 'Mannschaft' => array('justification' => 'left'), 'Spiele' => array('justification' => 'center'), 's' => array('justification' => 'center'), 'u' => array('justification' => 'center'), 'n' => array('justification' => 'center'), '+Tore' => array('justification' => 'center'), '-Tore' => array('justification' => 'center'), 'Diff.' => array('justification' => 'center'), 'Pkt' => array('justification' => 'center'));
 
 $j = 0;
 for ($i = 0; $i <=EZ_GRIDLINE_ALL ; $i++) {
   if (!($j % 4) && $j != 0) {
-      $pdf->ezNewPage();
+    $pdf->ezNewPage();
   }
   $title = sprintf($text['pdf'][280].': %d %s', $i, '', '');
   $pdf->ezTable($data, $cols, $title, array(
@@ -104,7 +113,7 @@ for ($i = 0; $i <=EZ_GRIDLINE_ALL ; $i++) {
     'cols'                =>  $coloptions,
     'innerLineThickness'  =>  0.5,
     'outerLineThickness'  =>  3));
-  $pdf->ezText('', 8);  //Distance to the next block by empty text line
+  $pdf->ezText('', 60);  //Distance to the next block by empty text line
   $j++;
 }
 $pdf->ezStream();

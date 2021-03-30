@@ -52,11 +52,29 @@ if ($pdf_lmo_show_adobe_link<>0) {
 ?><a target='_blank' href='https://get.adobe.com/reader/'><img src='<?php echo URL_TO_IMGDIR."/pdf/getadobe.png";?>' height='30' border=0 title='<?php echo $text['pdf'][12] ?>'></a><?php
   } else echo"&nbsp;";
 ?></td>
-    <td align="center" width='37%'><?php
+    <td align="center" width='37%'>
+<?php
   if (file_exists(PATH_TO_ADDONDIR."/pdf/pdf-teamplan.php")) {
-?><img src='<?php echo URL_TO_IMGDIR."/pdf/pdf.png' height='25' border='0' align='absmiddle'><a target='".$pdf_lmo_pdf_linktarget."' href='".URL_TO_LMO."/addon/pdf/pdf-teamplan.php?file=".$file."&selteam=".$selteam."' title='".$text['pdf'][101]."'>".$text['pdf'][100];?></a><?php
+?>
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Schedule"><?php echo $text['pdf'][100]?></button>
+      <!-- Modal -->
+      <div id="myModal_Schedule" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-xl">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-body">
+              <embed src="<?php echo URL_TO_LMO."/addon/pdf/pdf-teamplan.php?file=".$file."&selteam=".$selteam?>" frameborder="0" width="100%" height="500px">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
+            </div>
+          </div>
+        </div>
+      </div>
+<?php
   }
-?></td>
+?>    </td>
   </tr>
 </table>
 <?php 

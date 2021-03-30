@@ -261,6 +261,9 @@ Das war es schon mit der Einbindung des PDF-Addon Spielplan
 #NP
 1<PDF Teamplan>
 
+Ermöglicht die Ausgabe im Link Spielpläne des LMO in einer PDF Ausgabe. Hier werden die gezeigten Partien (der ganzen Session) einer ausgewählten Mannschaft als PDF-Dokument dargestellt.
+Nach der Installation erscheint unterhalb des Auswahlfensters 'Spielpläne' ein neuer Link 'Spielplan als PDF-Dokument'.
+
 2<Installation>
 
   1. Zuerst einmal, du hast die Dateien aus der Installation der R&OS PHP PDF Class schon in Deinen LMO kopierst.
@@ -297,16 +300,11 @@ include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 #c
 Das war es schon mit der Einbindung des PDF-Addon Teamplan
 #NP
-1<PDF Teamvegleich>
+1<PDF Teamvergleich>
 
-2<Beschreibung>
+Beschreibung folgt noch
+
 
 2<Installation>
 
-
-
-
-
-
-
-
+Beschreibung folgt noch

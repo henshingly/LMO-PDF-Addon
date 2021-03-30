@@ -13,6 +13,7 @@
 012=Adobe Reader herunterladen
 013=Fehler beim laden der Liga
 014=<- Momentan ohne Funktion
+015=PDF
 100=Spielplan als PDF-Dokument
 101=Erstellt aus dem Spielplan ein PDF-Dokument und zeigt es an.
 102=Fehler: Liga nicht gefunden!
@@ -33,8 +34,8 @@
 201=Einstellungen für das PDF Design
 202=PDF-Addon 3.0 &copy; Henshingly
 203=Globale Enstellungen
-204=PDF Tabelle
-205=PDF Spielplan
+204=Spieltag
+205=Ligaspielplan
 206=PDF Teamplan
 207=Adobe Link anzeigen
 208=Verlinkung der PDF-Dokumente in ein neues Fenster/Tab (target='_blank')
@@ -119,3 +120,4 @@
 287=Legen Sie hier die Spaltenbreite für die Zeit fest
 288=Legen Sie hier die Breite der beiden Spalten für die Mannschaftsnamen fest
 289=Legen Sie hier die Spaltenbreite für das Ergebnis fest
+290=PDF schließen

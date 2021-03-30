@@ -44,27 +44,70 @@
 
 if($lmtype==0 && $druck==1){
   ob_start();
-  if($lmtype==0 && $druck==1){ ?>
+  if($lmtype==0 && $druck==1){
+?>
         <table width="100%" cellspacing="0" cellpadding="0" border="0">
           <tr>
-            <td align="left" width='45%'><?php
-if (file_exists(PATH_TO_ADDONDIR."/pdf/pdf-tabelle.php")) {
-?><a target='<?php echo $pdf_lmo_pdf_linktarget."' href='".URL_TO_LMO."/addon/pdf/pdf-tabelle.php?file=".$file."&amp;st=".$st."' title='".$text['pdf'][003]."'>".$text['pdf'][002]."</a><img src='".URL_TO_IMGDIR?>/pdf/pdf.png' height='25' border='0' align='absmiddle'><?php
-}
-?></td>
-            <td align="center" width='10%'><?php
-if ($pdf_lmo_show_adobe_link<>0) { 
-?><a target='_blank' href='https://get.adobe.com/reader/'><img src='<?php echo URL_TO_IMGDIR."/pdf/getadobe.png";?>' height='30' border=0 title='<?php echo $text['pdf'][12] ?>'></a><?php
-  } else echo"&nbsp;";
-?></td>
-            <td align="right" width='45%'><?php
-if (file_exists(PATH_TO_ADDONDIR."/pdf/pdf-spielplan.php")) {
-?><img src='<?php echo URL_TO_IMGDIR."/pdf/pdf.png' height='25' border='0' align='absmiddle'><a target='".$pdf_lmo_pdf_linktarget."' href='".URL_TO_LMO."/addon/pdf/pdf-spielplan.php?file=".$file."' title='".$text['pdf'][001]."'>".$text['pdf'][000]?></a><?php
-}
-?></td>
+            <td align="center" width='45%'>
+<?php
+    if (file_exists(PATH_TO_ADDONDIR."/pdf/pdf-tabelle.php")) {
+?>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Matchday"><?php echo $text['pdf'][002]?></button>
+              <!-- Modal -->
+              <div id="myModal_Matchday" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-xl">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <embed src="<?php echo URL_TO_LMO."/addon/pdf/pdf-tabelle.php?file=".$file."&amp;st=".$st?>" frameborder="0" width="100%" height="500px">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<?php 
+    }
+?>
+            </td>
+            <td align="center" width='10%'>
+<?php
+    if ($pdf_lmo_show_adobe_link<>0) {
+?>
+              <a target='_blank' href='https://get.adobe.com/reader/'><img src='<?php echo URL_TO_IMGDIR."/pdf/getadobe.png";?>' height='30' border=0 title='<?php echo $text['pdf'][12] ?>'></a>
+<?php
+    } else echo"              &nbsp;\n";
+?>
+            </td>
+            <td align="center" width='45%'>
+<?php
+    if (file_exists(PATH_TO_ADDONDIR."/pdf/pdf-spielplan.php")) {
+?>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Schedule"><?php echo $text['pdf'][000]?></button>
+              <!-- Modal -->
+              <div id="myModal_Schedule" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-xl">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <embed src="<?php echo URL_TO_LMO."/addon/pdf/pdf-spielplan.php?file=".$file?>" frameborder="0" width="100%" height="500px">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<?php
+    }
+?>
+            </td>
           </tr>
         </table>
-      <?php
+<?php
   }
 $output_savehtml.=ob_get_contents();ob_end_clean();
 }
