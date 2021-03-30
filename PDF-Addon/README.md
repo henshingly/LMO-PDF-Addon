@@ -1,19 +1,13 @@
 # PDF-Addons
-1<Einführung  >
 
 Dieses PDF Addon Paket enthält den offiziellen GIT-Klon der R&OS PHP PDF-Klasse und 3 PDF Addons verschiedener Autoren
-
-    1.  <a target="_blank" href="https://github.com/rospdf/pdf-php/">ROS PHP Pdf creation class</a>
-        enthält die Source Dateien der PDF-Klasse
+1.  <a target="_blank" href="https://github.com/rospdf/pdf-php/">ROS PHP Pdf creation class</a> enthält die Source Dateien der PDF-Klasse
 	   
-    2. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/pdf-spielplan.html/">PDF Spielplan von timme</a>
-        enthält unter anderem die PDF Ausgabedateien pdf-spielplan.php und pdf-tabelle.php
+2. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/pdf-spielplan.html/">PDF Spielplan von timme</a> enthält unter anderem die PDF Ausgabedateien pdf-spielplan.php und pdf-tabelle.php
 
-    3. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/teamplan.html/">PDF Teamplan von plastic</a>
-        enthält unter anderem die PDF Ausgabedatei pdf-teamplan.php
-	
-    4. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/teamvergleich.html/">PDF Teamvergleich von plastic</a>
-        enthält unter anderem die PDF Ausgabedatei stats_viewp.php
+3. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/teamplan.html/">PDF Teamplan von plastic</a> enthält unter anderem die PDF Ausgabedatei pdf-teamplan.php
+
+4. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/teamvergleich.html/">PDF Teamvergleich von plastic</a> enthält unter anderem die PDF Ausgabedatei stats_viewp.php
 
 Dieses Paket wurde von mir neu geschnürt um diverse festgestellte Bugs zu entfernen und die Möglichkeit der Sprachauswahl aller Dateien zu gewährleisten.
 Außerdem wurde noch die Verwendbarkeit der Addons unter PHP7 getestet. Bei mir lief es auch unter PHP Version 7.3.3.
@@ -22,8 +16,7 @@ von der Webseite www.liga-manager-online.de, genommenhabe. Sondern den LMO mit P
 Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf die <u>LMO_PHP7</u> Version.
 
 
-1<Changelog>
-
+Changelog
 
 3<3.0.5>
   17.03.2019
