@@ -2,7 +2,7 @@
 
 Dieses PDF Addon Paket enthält den offiziellen GIT-Klon der R&OS PHP PDF-Klasse und 3 PDF Addons verschiedener Autoren
 1.  <a target="_blank" href="https://github.com/rospdf/pdf-php/">ROS PHP Pdf creation class</a> enthält die Source Dateien der PDF-Klasse
-	
+
 2. PDF Spielplan von timme enthält unter anderem die PDF Ausgabedateien pdf-spielplan.php und pdf-tabelle.php
 
 3. <a target="_blank" href="https://www.liga-manager-online.de/homepage/homepage/addons/teamplan.html/">PDF Teamplan von plastic</a> enthält unter anderem die PDF Ausgabedatei pdf-teamplan.php
