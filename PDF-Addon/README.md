@@ -24,6 +24,7 @@ Changelog
   - Dateiupdate der R&OS Klasse von 0.12.49 -> 0.12.63
   - Ausgabe der PDF Dateien per bootstrap modal, die Installation dieses Updates setzt ein Update des LMO_ PHP7 voraus. Denn dort liegen die benötigten neuen und die umgeschriebenen Dateien vor.
     Dadurch fällt die Einstellung im Adminmenü, unter "Globale Einstellungen", weg ob die Ausgabe im gleichen Tab (target='self') oder in einem neuen Tab (target='blank') erfolgen soll.
+    Außerdem wurde der Link zum Download des Adobe Readers entfernt.
 
 3.0.5
   17.03.2019
