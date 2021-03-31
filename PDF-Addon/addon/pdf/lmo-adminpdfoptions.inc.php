@@ -51,8 +51,6 @@ if(isset($_POST['save']) && $_POST['save']==1){
     $pdf_lmo_pdf_bild=                 isset($_POST["xpdf_lmo_pdf_bild"])?                 $_POST["xpdf_lmo_pdf_bild"]:                 $pdf_lmo_pdf_bild;
     $pdf_lmo_show_pdfimg=              isset($_POST["xpdf_lmo_show_pdfimg"])?              $_POST["xpdf_lmo_show_pdfimg"]:              $pdf_lmo_show_pdfimg;
     $pdf_lmo_show_rectangle=           isset($_POST["xpdf_lmo_show_rectangle"])?           $_POST["xpdf_lmo_show_rectangle"]:           $pdf_lmo_show_rectangle;
-    $pdf_lmo_show_adobe_link=          isset($_POST["xpdf_lmo_show_adobe_link"])?          $_POST["xpdf_lmo_show_adobe_link"]:          '0';
-    $pdf_lmo_pdf_linktarget=           isset($_POST["xpdf_lmo_pdf_linktarget"])?           $_POST["xpdf_lmo_pdf_linktarget"]:           '_blank';
     $pdf_lmo_pdf_Rectangle_Width=      isset($_POST["xpdf_lmo_pdf_Rectangle_Width"])?      $_POST["xpdf_lmo_pdf_Rectangle_Width"]:      $pdf_lmo_pdf_Rectangle_Width;
     $pdf_lmo_pdf_Distance_Side_Edge=   isset($_POST["xpdf_lmo_pdf_Distance_Side_Edge"])?   $_POST["xpdf_lmo_pdf_Distance_Side_Edge"]:   $pdf_lmo_pdf_Distance_Side_Edge;
     $pdf_lmo_pdf_Distance_Lower_Edge=  isset($_POST["xpdf_lmo_pdf_Distance_Lower_Edge"])?  $_POST["xpdf_lmo_pdf_Distance_Lower_Edge"]:  $pdf_lmo_pdf_Distance_Lower_Edge;
@@ -160,17 +158,24 @@ if(isset($_POST['save']) && $_POST['save']==1){
           </tr>
           <tr>
             <td class="nobr" align="right"><?php echo $text['pdf'][232];?></td>
-            <td class="nobr" colspan="2"><a target="_blank" href="<?php echo URL_TO_LMO?>/addon/pdf/lmo-color_help.php" title="<?php echo $text['pdf'][233]?>"><?php echo $text['pdf'][234]?></a></td>
-          </tr>
-          <tr>
-            <td colspan="3"></td>
-          </tr>
-          <tr>
-            <td class="nobr" align="right" rowspan="2"><acronym title="<?php echo $text['pdf'][217]?>"><?php echo $text['pdf'][207]?></acronym></td>
-            <td class="nobr" colspan="2"><input type="radio" name="xpdf_lmo_show_adobe_link" onClick="dolmoedit()" value="1"<?php if ($pdf_lmo_show_adobe_link=='1') echo " checked";?>> <?php echo $text[181]?></td>
-          </tr>
-          <tr>
-            <td class="nobr" colspan="2"><input type="radio" name="xpdf_lmo_show_adobe_link" onClick="dolmoedit()" value="0"<?php if ($pdf_lmo_show_adobe_link=='0') echo " checked";?>> <?php echo $text[182]?></td>
+            <td>
+            <!-- Trigger the modal with a button -->
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Example_Matchday"><?php echo $text['pdf'][234]?></button>
+              <!-- Modal -->
+              <div id="myModal_Example_Matchday" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-xl">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <embed src="<?php echo URL_TO_LMO?>/addon/pdf/lmo-color_help.php" frameborder="0" width="100%" height="500px">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </td>
           </tr>
           <tr>
             <td colspan="3"></td>
@@ -185,16 +190,6 @@ if(isset($_POST['save']) && $_POST['save']==1){
           <tr>
             <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][111]?>"><?php echo $text['pdf'][209]?></acronym></td>
             <td class="nobr" colspan="2"><input type="radio" name="xpdf_lmo_show_pdfimg" onClick="dolmoedit()" value="1"<?php if ($pdf_lmo_show_pdfimg=='1') echo " checked";?>> <?php echo $text['pdf'][263]?>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<input type="radio" name="xpdf_lmo_show_pdfimg" onClick="dolmoedit()" value="0"<?php if ($pdf_lmo_show_pdfimg=='0') echo " checked";?>> <?php echo $text['pdf'][264]?></td>
-          </tr>
-          <tr>
-            <td colspan="3"></td>
-          </tr>
-          <tr>
-            <td class="nobr" align="right" rowspan="2"><acronym title="<?php echo $text['pdf'][218]?>"><?php echo $text['pdf'][213]?></acronym></td>
-            <td class="nobr" colspan="2"><input type="radio" name="xpdf_lmo_pdf_linktarget" onClick="dolmoedit()" value="_blank"<?php if ($pdf_lmo_pdf_linktarget=='_blank') echo " checked";?>> <acronym title="<?php echo $text['pdf'][208]?>"><?php echo $text['pdf'][214]?></acronym></td>
-          </tr>
-          <tr>
-            <td class="nobr" colspan="2"><input type="radio" name="xpdf_lmo_pdf_linktarget" onClick="dolmoedit()" value="_self"<?php if ($pdf_lmo_pdf_linktarget=='_self') echo " checked";?>> <acronym title="<?php echo $text['pdf'][216]?>"><?php echo $text['pdf'][215]?></acronym></td>
           </tr>
           <tr>
             <td colspan="3"></td>
