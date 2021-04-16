@@ -221,7 +221,7 @@ Die Zeilen 244, 245 und 246 sehen folgendermaßen aus.
 
   // PDF ADDON BEGIN
   if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php'))
-  include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
+    include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
   // PDF ADDON END
 
 danach sollte es so aussehen.
@@ -230,7 +230,7 @@ danach sollte es so aussehen.
   }
   // PDF ADDON BEGIN
   if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php'))
-  include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
+    include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
   // PDF ADDON END
 }
 
@@ -259,7 +259,7 @@ folgendes einfügen
 <?php
 // Teamplan ADDON BEGIN
 if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php'))
-include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
+  include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 // Teamplan ADDON END
 ?>
 
@@ -269,7 +269,7 @@ danach sollte es so aussehen.
 <?php
 // Teamplan ADDON BEGIN
 if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php'))
-include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
+  include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 // Teamplan ADDON END
 ?>
 
