@@ -46,13 +46,9 @@ if($lmtype==0 && $plan==1) {
 ?>
 <table width="100%" cellspacing="0" cellpadding="0" border="0">
   <tr>
-    <td align="center" width='37%'></td>
-    <td align="center"><?php 
-if ($pdf_lmo_show_adobe_link<>0) { 
-?><a target='_blank' href='https://get.adobe.com/reader/'><img src='<?php echo URL_TO_IMGDIR."/pdf/getadobe.png";?>' height='30' border=0 title='<?php echo $text['pdf'][12] ?>'></a><?php
-  } else echo"&nbsp;";
-?></td>
-    <td align="center" width='37%'>
+    <td align="center" width='50%'>
+    </td>
+    <td align="center" width='50%'>
 <?php
   if (file_exists(PATH_TO_ADDONDIR."/pdf/pdf-teamplan.php")) {
 ?>
