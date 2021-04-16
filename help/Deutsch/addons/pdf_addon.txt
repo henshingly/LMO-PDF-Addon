@@ -241,7 +241,7 @@ Unter dem Link 'Ligaspielplan drucken' erscheint der Link 'Ligaspielplan als PDF
 #C
   // PDF ADDON BEGIN
   if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php'))
-  include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
+    include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
   // PDF ADDON END
 #c
 
@@ -252,7 +252,7 @@ Unter dem Link 'Ligaspielplan drucken' erscheint der Link 'Ligaspielplan als PDF
   }
   // PDF ADDON BEGIN
   if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php'))
-  include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
+    include(PATH_TO_ADDONDIR.'/pdf/lmo-showmain2.inc.php');
   // PDF ADDON END
 }
 #c
@@ -282,7 +282,7 @@ Nach der Installation erscheint unterhalb des Auswahlfensters 'Spielpläne' ein 
 <?php
 // Teamplan ADDON BEGIN
 if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php'))
-include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
+  include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 // Teamplan ADDON END
 ?>
 #c
@@ -294,7 +294,7 @@ include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 <?php
 // Teamplan ADDON BEGIN
 if (file_exists(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php'))
-include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
+  include(PATH_TO_ADDONDIR.'/pdf/lmo-showprogram.inc.php');
 // Teamplan ADDON END
 ?>
 #c
