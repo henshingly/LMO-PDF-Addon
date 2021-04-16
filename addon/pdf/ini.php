@@ -126,6 +126,9 @@ function HTML_iconPDF($img_name,$img_type,$img_size='big') {
     if ($imgHTML = findImagePDF($img_name,$subFolder,$extension) ) {
       break;
     }
+    else {
+      $imgHTML = URL_TO_IMGDIR."/pdf/no_icon.png";
+    }
   }
   return $imgHTML;
 }
