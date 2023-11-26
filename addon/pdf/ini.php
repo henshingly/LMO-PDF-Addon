@@ -1,59 +1,59 @@
 <?php
-/** This file is part of Pdf Addon for LMO 4.
-..* Copyright (C) 2017 by Dietmar Kersting
-..*
-..* MINITABLE Addon for LigaManager Online (pdf-tabelle.php and pdf-spielplan.php)
-..* Copyright (C) 2003 by Tim Schumacher
-..* timme@uni.de /
-..*
-..* Pdf Addon for LMO 4 für Spielplan (pdf-spielplan.php)
-..* Copyright (C)  by Torsten Hofmann V 2.0
-..*
-..* Pdf Addon für LMO 4 is free software: you can redistribute it and/or modify
-..* it under the terms of the GNU General Public License as published by
-..* the Free Software Foundation, either version 3 of the License, or
-..* (at your option) any later version.
-..*
-..* Pdf Addon für LMO 4 is distributed in the hope that it will be useful,
-..* but WITHOUT ANY WARRANTY; without even the implied warranty of
-..* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-..* GNU General Public License for more details.
-..*
-..* You should have received a copy of the GNU General Public License
-..* along with Pdf Addon für LMO 4.  If not, see <http://www.gnu.org/licenses/>.
+/** This file is part of PDF Addon for LMO 4.
+  * Copyright © 2017 by Dietmar Kersting
+  *
+  * MINITABLE Addon for LigaManager Online (pdf-tabelle.php and pdf-spielplan.php)
+  * Copyright © 2003 by Tim Schumacher
+  * timme@uni.de /
+  *
+  * PDF Addon for LMO 4 für Spielplan (pdf-spielplan.php)
+  * Copyright © by Torsten Hofmann V 2.0
+  *
+  * PDF Addon für LMO 4 is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  *
+  * PDF Addon für LMO 4 is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with PDF Addon für LMO 4.  If not, see <http://www.gnu.org/licenses/>.
   *
   * REMOVING OR CHANGING THE COPYRIGHT NOTICES IS NOT ALLOWED!
-..*
-..* Diese Datei ist Teil des PDF Addon für LMO 4.
-..*
-..* Pdf Addon für LMO 4 ist Freie Software: Sie können es unter den Bedingungen
-..* der GNU General Public License, wie von der Free Software Foundation,
-..* Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren
-..* veröffentlichten Version, weiterverbreiten und/oder modifizieren.
-..*
-..* Pdf Addon für LMO 4 wird in der Hoffnung, dass es nützlich sein wird, aber
-..* OHNE JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
-..* Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
-..* Siehe die GNU General Public License für weitere Details.
-..*
-..* Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
-..* Pdf Addon für LMO 4 erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+  *
+  * Diese Datei ist Teil des PDF Addon für LMO 4.
+  *
+  * PDF Addon für LMO 4 ist Freie Software: Sie können es unter den Bedingungen
+  * der GNU General Public License, wie von der Free Software Foundation,
+  * Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren
+  * veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+  *
+  * PDF Addon für LMO 4 wird in der Hoffnung, dass es nützlich sein wird, aber
+  * OHNE JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
+  * Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+  * Siehe die GNU General Public License für weitere Details.
+  *
+  * Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+  * PDF Addon für LMO 4 erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
   *
   * DAS ENTFERNEN ODER DIE ÄNDERUNG DER COPYRIGHT-HINWEISE IST NICHT ERLAUBT!
-**/
+  */
 
 require_once(PATH_TO_ADDONDIR."/classlib/ini.php");
-if (!defined('VERSIONPDF'))    define('VERSIONPDF','0.12.63'); //Versionsnummer PDF-Class
-if (!defined('VERSIONA'))      define('VERSIONA','3.1.0');     //Versionsnummer Teamplan
-if (!defined('VERSION'))       define('VERSION','3.1.5');      //Versionsnummer Spielplan 
+if (!defined('VERSIONPDF'))    define('VERSIONPDF','0.12.67'); //Versionsnummer PDF-Class
+if (!defined('VERSIONA'))      define('VERSIONA','3.1.1');     //Versionsnummer Teamplan
+if (!defined('VERSION'))       define('VERSION','3.1.6');      //Versionsnummer Spielplan
 if (!defined('ADDON_NAMEPDF')) define('ADDON_NAMEPDF','ROS PHP Pdf creation class');
 if (!defined('ADDON_NAMEA'))   define('ADDON_NAMEA','Teamplan');
 if (!defined('ADDON_NAME'))    define('ADDON_NAME','Spielplan');
-if (!defined('VERSlON'))       define('VERSlON',ADDON_NAME." ".VERSION." Addon for <c:alink:http://www.liga-manager-online.de>LMO 4</c:alink> (C) 2004 by Tim Schumacher");
-if (!defined('VERSlONA'))      define('VERSlONA',"(C) 2005 by <c:alink:http://httipp.bplaced.de>HT</c:alink>");
+if (!defined('VERSlON'))       define('VERSlON',ADDON_NAME." ".VERSION." Addon for <c:alink:http://www.liga-manager-online.de>LMO 4</c:alink> © 2004 by Tim Schumacher");
+if (!defined('VERSlONA'))      define('VERSlONA',"© 2005 by <c:alink:http://httipp.bplaced.de>HT</c:alink>");
 if (!defined('TEAM_PLAN'))     define('TEAM_PLAN',ADDON_NAMEA." ".VERSIONA." for <c:alink:http://www.liga-manager-online.de>LMO 4</c:alink> ");
 if (!defined('PDF_VERSION'))   define('PDF_VERSION',VERSlON);
-if (!defined('PDF_CLASS'))     define('PDF_CLASS',"(C) <c:alink:https://github.com/rospdf/pdf-php>".ADDON_NAMEPDF."</c:alink> ".VERSIONPDF);
+if (!defined('PDF_CLASS'))     define('PDF_CLASS',"© <c:alink:https://github.com/rospdf/pdf-php>".ADDON_NAMEPDF."</c:alink> ".VERSIONPDF);
 
 $pdfhomepage=           isset($cfgarray['pdf']['lmo_pdf_homepage'])?             $cfgarray['pdf']['lmo_pdf_homepage']:'';             // Homepage URL
 $TextColorRed=          isset($cfgarray['pdf']['TextColorRed'])?                 $cfgarray['pdf']['TextColorRed']:'';                 // Value of Red Text
@@ -70,7 +70,7 @@ $Distance_Side_Edge=    isset($cfgarray['pdf']['lmo_pdf_Distance_Side_Edge'])?  
 $Distance_Lower_Edge=   isset($cfgarray['pdf']['lmo_pdf_Distance_Lower_Edge'])?  $cfgarray['pdf']['lmo_pdf_Distance_Lower_Edge']:'';  // point pitch of margin down
 $img=                   isset($cfgarray['pdf']['lmo_pdf_bild'])?                 $cfgarray['pdf']['lmo_pdf_bild']:'';                 // name of the image file to be displayed in the pdf
 $pdfformat=             isset($cfgarray['pdf']['lmo_pdf_format'])?               $cfgarray['pdf']['lmo_pdf_format']:0;                // Format 1 is portrait format, format 0 is landscape format
-$pdfanzeige=            isset($cfgarray['pdf']['lmo_pdf_anzeige'])?              $cfgarray['pdf']['lmo_pdf_anzeige']:1;               // 
+$pdfanzeige=            isset($cfgarray['pdf']['lmo_pdf_anzeige'])?              $cfgarray['pdf']['lmo_pdf_anzeige']:1;               //
 $pdfteamfett=           isset($cfgarray['pdf']['lmo_pdf_teamfett'])?             $cfgarray['pdf']['lmo_pdf_teamfett']:0;              //
 $pdfserie=              isset($cfgarray['pdf']['lmo_pdf_serie'])?                $cfgarray['pdf']['lmo_pdf_serie']:0;                 //
 $pdfteamnamen=          isset($cfgarray['pdf']['lmo_pdf_teamnamen'])?            $cfgarray['pdf']['lmo_pdf_teamnamen']:0;             //

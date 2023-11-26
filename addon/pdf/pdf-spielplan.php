@@ -1,7 +1,7 @@
 <?php
-/** Pdf Addon for LMO 4
+/** PDF Addon for LMO 4
   *
-  * (c) by Tim Schumacher
+  * © by Tim Schumacher
   *
   * This program is free software; you can redistribute it and/or
   * modify it under the terms of the GNU General Public License as
@@ -15,17 +15,18 @@
   *
   * REMOVING OR CHANGING THE COPYRIGHT NOTICES IS NOT ALLOWED!
   *
-**/
-/** Change the design, clean up errors and insert a new PDF class.
+  *-----------------------------------------------------------------
+  *
+  * Change the design, clean up errors and insert a new PDF class.
   * Insert new features and formatting.
   * Now everything can be controlled via the Admin menu.
   * Merge all PDF Addons from Torsten Hofmann and Tim Schumacher
   *
-  * Copyright (C) 2017 by Dietmar Kersting
-  * 
-  * New PDF CLASS 
+  * Copyright © 2017 by Dietmar Kersting
+  *
+  * New PDF CLASS
   * https://github.com/rospdf/pdf-php/
-**/
+  */
 
 require_once(dirname(__FILE__).'/../../init.php');
 require_once(PATH_TO_ADDONDIR."/pdf/ini.php");
@@ -35,11 +36,11 @@ $Total_Width='595.28';
 $Total_Height='841.89';
 $leer='';
 
-$error=FALSE;
+$error=false;
 $protectRows=11;
 if ($file <> '') {
   $liga=new liga();
-  if ($liga->loadFile(PATH_TO_LMO."/".$dirliga.$file)==TRUE) {
+  if ($liga->loadFile(PATH_TO_LMO."/".$dirliga.$file)==true) {
     $ligaName=$liga->name;
     $filename=$text['pdf'][107]."_".$ligaName;
     $pdf=new CezTableImage('a4');
@@ -49,12 +50,12 @@ if ($file <> '') {
     $pdf->saveState();
     $pdf->openHere('Fit');
     if ($lmo_show_pdfimg==1) {
-      $pdf->ezImage($pdfimg, -35, 100, 'none', 'center',0,0);
+      $pdf->ezImage($pdfimg, -25, 100, 'none', 'center');
     }
     $pdf->ezSetMargins(30,30,50,50);  //(top,bottom,left,right)
     $pdf->selectFont(PATH_TO_ADDONDIR.'/classlib/classes/pdf/fonts/'.$pdf_PDF_font);
-    $pdf->addText($Total_Width-170,$Total_Height-15,10,strftime ("%d.%m.%Y - %H:%M")." ".$text['pdf'][103]);
-    $pdf->addText(50,$Total_Height-30,15,"$liga->name");
+    $pdf->addText($Total_Width-170,$Total_Height-15,10, date("d.m.Y - H:i")." ".$text['pdf'][103]);
+    $pdf->addText(50,$Total_Height-55,15,"$liga->name");
     if ($lmo_show_rectangle==1) {
       $pdf->setColor($RectangleColorRed,$RectangleColorGreen,$RectangleColorBlue);
       $pdf->filledRectangle($Distance_Side_Edge,$Distance_Lower_Edge,$Rectangle_Width,$Total_Height-(2*$Distance_Lower_Edge));
@@ -92,7 +93,13 @@ if ($file <> '') {
       'width'              =>  $width);
 
     // Gesamtspielplan der Ligadatei
+    $pdf->ezSetY($Total_Height-60);
+    $j = 0;
     foreach($liga->spieltage as $spieltag) {
+      if (!($j % 4) && $j != 0) {
+        $pdf->ezNewPage();
+        $pdf->ezSetY($Total_Height-60);
+      }
       if ($liga->options->keyValues['enableGameSort'] == "1") {  //Sorting is active in the league file
         $partien = $spieltag->getPartien("datum");
       } else {                                                   //Sorting is not active in the league file
@@ -122,10 +129,11 @@ if ($file <> '') {
       }
       $pdf->ezTable($pdfSpieltag,"",$spieltag->nr.". ".$text[2],$spTagOptionsSP);
       $pdf->ezText('', 15);  //Distance to the next table by empty text line
+      ++$j;
     }
   } else {
-    $error=TRUE;
-    $message= getMessage("<b><u>".$text['pdf'][13].":</u></b> ".$file,True);
+    $error=true;
+    $message= getMessage("<b><u>".$text['pdf'][13].":</u></b> ".$file,true);
     $ligaName=$message;
   }
 }
@@ -140,7 +148,7 @@ if (!$error) {
           "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="de">
 <head>
-<title><?php echo "Pdf Addon ".($ligaName)?></title>
+<title><?php echo "PDF Addon ".($ligaName)?></title>
 </head>
 <body>
 <?php echo $message;?>

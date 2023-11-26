@@ -1,7 +1,7 @@
 <?php
-/** Pdf Addon for LMO 4 für Spielplan
+/** PDF Addon for LMO 4 für Spielplan
   *
-  * (c) by Torsten Hofmann V 2.0
+  * © by Torsten Hofmann V 2.0
   *
   * PDF CLASS
   * http://ros.co.nz/pdf - http://www.sourceforge.net/projects/pdf-php
@@ -18,20 +18,20 @@
   *
   * REMOVING OR CHANGING THE COPYRIGHT NOTICES IS NOT ALLOWED!
   *
-  *
   * Bei Problemen des Style's siehe Kommentare unten
-  * 
-**/
-/** Change the design, clean up errors and insert a new PDF class.
+  *
+  *-----------------------------------------------------------------
+  *
+  * Change the design, clean up errors and insert a new PDF class.
   * Insert new features and formatting.
   * Now everything can be controlled via the Admin menu.
   * Merge all PDF Addons from Torsten Hofmann and Tim Schumacher
   *
-  * Copyright (C) 2017 by Dietmar Kersting
-  * 
-  * New PDF CLASS 
+  * Copyright © 2017 by Dietmar Kersting
+  *
+  * New PDF CLASS
   * https://github.com/rospdf/pdf-php/
-**/
+  */
 
 require_once(dirname(__FILE__).'/../../init.php');
 require_once(PATH_TO_ADDONDIR."/pdf/ini.php");
@@ -39,11 +39,11 @@ require_once(PATH_TO_ADDONDIR."/pdf/ini.php");
 $pdfround="";
 $Team_Name="";
 
-$error=FALSE;
+$error=false;
 $protectRows=10;
 if ($file <> '') {
   $liga=new liga();
-  if ($liga->loadFile(PATH_TO_LMO."/".$dirliga.$file)==TRUE) {
+  if ($liga->loadFile(PATH_TO_LMO."/".$dirliga.$file)==true) {
     $ligaName=$liga->name;
     $filename=$text['pdf'][104];
     //$pages=count($pdf->ezPages);
@@ -65,12 +65,12 @@ if ($file <> '') {
     $pdf->saveState();
     $pdf->openHere('Fit');
     if ($lmo_show_pdfimg==1) {
-      $pdf->ezImage($pdfimg, -35, 100, 'none', 'center',0,0);
+      $pdf->ezImage($pdfimg, -25, 100, 'none', 'center');
     }
-    $pdf->ezSetMargins(50,30,50,50);  //(top,bottom,left,right)
+    $pdf->ezSetMargins(60,30,50,50);  //(top,bottom,left,right)
     $pdf->selectFont(PATH_TO_ADDONDIR.'/classlib/classes/pdf/fonts/'.$pdf_PDF_font);
-    $pdf->addText($Total_Width-170,$Total_Height-15,10,strftime ("%d.%m.%Y - %H:%M")." ".$text['pdf'][103]);
-    $pdf->addText(50,$Total_Height-25,15,"$liga->name");
+    $pdf->addText($Total_Width-170,$Total_Height-15,10, date("d.m.Y - H:i")." ".$text['pdf'][103]);
+    $pdf->addText(50,$Total_Height-55,15,"$liga->name");
     if ($lmo_show_rectangle==1) {
       $pdf->setColor($RectangleColorRed,$RectangleColorGreen,$RectangleColorBlue);
       $pdf->filledRectangle($Distance_Side_Edge,$Distance_Lower_Edge,$Rectangle_Width,$Total_Height-(2*$Distance_Lower_Edge));
@@ -92,6 +92,7 @@ if ($file <> '') {
       $pdf->ezText($text['24'],16,array('justification'=>'centre'));
     } elseif ($selteam >= 1) {
       $sortedGames=$liga->gamesSorted($pdfanzeige);
+      $pdf->ezSetY($Total_Height-105);
       foreach ($sortedGames as $game) {
         $partie=&$game['partie'];
         $spieltag=&$game['spieltag'];
@@ -107,6 +108,7 @@ if ($file <> '') {
           if ($pdfserie==1 and $game['spieltag']->nr === $runde/2+1) {
             $pdf->ezNewPage();
             $pdfround=$text['pdf'][106];
+            $pdf->ezSetY($Total_Height-105);
           } else {
             $dummy="";
           }
@@ -179,6 +181,7 @@ if ($file <> '') {
             if ($pdfserie==1 and $game['spieltag']->nr === $runde/2+1) {
               $pdf->ezNewPage();
               $pdfround=$text['pdf'][106];
+              $pdf->ezSetY($Total_Height-105);
             } else {
               $dummy=" ";
             }
@@ -247,46 +250,50 @@ if ($file <> '') {
                 'Result'  =>  $Result));
           }
         }
-        if ($pdfserie==0) $pdfround=$text['pdf'][104];
+        if ($pdfserie == 0) $pdfround=$text['pdf'][104];
 /**
-  * Start Output
-  * $pdfformat==1 is portrait format. $pdfformat==0 is landscape format
-  * fontSize and the other values are controlled in the admin menu
+        * Start Output
+        * $pdfformat==1 is portrait format. $pdfformat==0 is landscape format
+        * fontSize and the other values are controlled in the admin menu
 **/
         if ($pdfformat==1) {
-          $pdf->addText($Total_Width/2-80,$Total_Height-45,$tp_port_tfontsize,$pdfround." - ".$Team_Name);
+          $pdf->addText($Total_Width/2-80,$Total_Height-85,$tp_port_tfontsize,$pdfround." - ".$Team_Name);
           $pdf->ezTable($pdfSpieltag,'','',array(
-            'xPos'          =>  'center',
-            'fontSize'      =>  $tp_port_fontsize,
-            'showHeadings'  =>  0,
-            'shaded'        =>  0,
-            'showLines'     =>  0,
-            'cols'          =>  array(
-              'Datum'   =>  array('width'=>$pdf_tp_port_Datum,'justification'=>'left'),
-              'Zeit'    =>  array('width'=>$pdf_tp_port_Zeit,'justification'=>'center'),
-              'Heim'    =>  array('width'=>$pdf_tp_port_Team,'justification'=>'right'),
-              'Gast'    =>  array('width'=>$pdf_tp_port_Team),
-              'Result'  =>  array('width'=>$pdf_tp_port_Result,'justification'=>'center'))));
+              'xPos'          =>  'center',
+              'fontSize'      =>  $tp_port_fontsize,
+              'showHeadings'  =>  0,
+              'shaded'        =>  0,
+              'showLines'     =>  0,
+              'cols'          =>  array(
+                  'Datum'   =>  array('width'=>$pdf_tp_port_Datum,'justification'=>'left'),
+                  'Zeit'    =>  array('width'=>$pdf_tp_port_Zeit,'justification'=>'center'),
+                  'Heim'    =>  array('width'=>$pdf_tp_port_Team,'justification'=>'right'),
+                  'Gast'    =>  array('width'=>$pdf_tp_port_Team),
+                  'Result'  =>  array('width'=>$pdf_tp_port_Result,'justification'=>'center')
+              )
+          ));
         } else {
-          $pdf->addText(($Total_Width/2)-100,$Total_Height-45,$tp_land_tfontsize,$pdfround." - ".$Team_Name);
+          $pdf->addText(($Total_Width/2)-100,$Total_Height-85,$tp_land_tfontsize,$pdfround." - ".$Team_Name);
           $pdf->ezTable($pdfSpieltag,'','',array(
-            'xPos'          =>  'center',
-            'fontSize'      =>  $tp_land_fontsize,
-            'showHeadings'  =>  0,
-            'shaded'        =>  0,
-            'showLines'     =>  0,
-            'cols'          =>  array(
-              'Datum'   =>  array('width'=>$pdf_tp_land_Datum,'justification'=>'left'),
-              'Zeit'    =>  array('width'=>$pdf_tp_land_Zeit,'justification'=>'center'),
-              'Heim'    =>  array('width'=>$pdf_tp_land_Team,'justification'=>'right'),
-              'Gast'    =>  array('width'=>$pdf_tp_land_Team),
-              'Result'  =>  array('width'=>$pdf_tp_land_Result,'justification'=>'center'))));
+              'xPos'          =>  'center',
+              'fontSize'      =>  $tp_land_fontsize,
+              'showHeadings'  =>  0,
+              'shaded'        =>  0,
+              'showLines'     =>  0,
+              'cols'          =>  array(
+                  'Datum'   =>  array('width'=>$pdf_tp_land_Datum,'justification'=>'left'),
+                  'Zeit'    =>  array('width'=>$pdf_tp_land_Zeit,'justification'=>'center'),
+                  'Heim'    =>  array('width'=>$pdf_tp_land_Team,'justification'=>'right'),
+                  'Gast'    =>  array('width'=>$pdf_tp_land_Team),
+                  'Result'  =>  array('width'=>$pdf_tp_land_Result,'justification'=>'center')
+              )
+          ));
         }
       }
     }
   } else {
-    $error=TRUE;
-    $message= getMessage("<b><u>".$text['pdf'][13].":</u></b> ".$file,True);
+    $error=true;
+    $message= getMessage("<b><u>".$text['pdf'][13].":</u></b> ".$file,true);
     $ligaName= $message;
   }
 }
@@ -302,7 +309,7 @@ if (!$error) {
           "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="de">
 <head>
-<title><?php echo "Pdf Addon ".($ligaName)?></title>
+<title><?php echo "PDF Addon ".($ligaName)?></title>
 </head>
 <body>
 <?php echo $message;?>

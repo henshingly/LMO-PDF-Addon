@@ -1,0 +1,2 @@
+000=Ligaspielplan als pdf-Dokument
+001=Erstellt aus dem Ligaspielplan ein Pdf-Dokument und zeigt es an.

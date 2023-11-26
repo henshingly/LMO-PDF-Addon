@@ -35,7 +35,7 @@
 202=PDF-Addon 3.0 &copy; Henshingly
 203=Globale Enstellungen
 204=Spieltag
-205=Ligaspielplan
+205=
 206=PDF Teamplan
 207=Adobe Link anzeigen
 208=Verlinkung der PDF-Dokumente in ein neues Fenster/Tab (target='_blank')
@@ -114,10 +114,11 @@
 281=Hilfe
 282=Dokument mit formatierten Tabellen
 283=Tabellendesign
-284=Auswahl des Tabellendesign für die
+284=Auswahl des Tabellendesign für
 285=Einstellung der Breite der Spieltagtabelle in Prozent
 286=Legen Sie hier die Spaltenbreite für das Datum fest
 287=Legen Sie hier die Spaltenbreite für die Zeit fest
 288=Legen Sie hier die Breite der beiden Spalten für die Mannschaftsnamen fest
 289=Legen Sie hier die Spaltenbreite für das Ergebnis fest
 290=PDF schließen
+291=Eine Zahl zwischen 0 und 31 auswählen

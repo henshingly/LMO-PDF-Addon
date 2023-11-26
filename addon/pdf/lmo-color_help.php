@@ -1,46 +1,46 @@
 <?php
-/** This file is part of Pdf Addon for LMO 4.
-..* Copyright (C) 2017 by Dietmar Kersting
-..*
-..* MINITABLE Addon for LigaManager Online (pdf-tabelle.php and pdf-spielplan.php)
-..* Copyright (C) 2003 by Tim Schumacher
-..* timme@uni.de /
-..*
-..* Pdf Addon for LMO 4 für Spielplan (pdf-spielplan.php)
-..* Copyright (C)  by Torsten Hofmann V 2.0
-..*
-..* Pdf Addon für LMO 4 is free software: you can redistribute it and/or modify
-..* it under the terms of the GNU General Public License as published by
-..* the Free Software Foundation, either version 3 of the License, or
-..* (at your option) any later version.
-..*
-..* Pdf Addon für LMO 4 is distributed in the hope that it will be useful,
-..* but WITHOUT ANY WARRANTY; without even the implied warranty of
-..* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-..* GNU General Public License for more details.
-..*
-..* You should have received a copy of the GNU General Public License
-..* along with Pdf Addon für LMO 4.  If not, see <http://www.gnu.org/licenses/>.
+/** This file is part of PDF Addon for LMO 4.
+  * Copyright © 2017 by Dietmar Kersting
+  *
+  * MINITABLE Addon for LigaManager Online (pdf-tabelle.php and pdf-spielplan.php)
+  * Copyright © 2003 by Tim Schumacher
+  * timme@uni.de /
+  *
+  * PDF Addon for LMO 4 für Spielplan (pdf-spielplan.php)
+  * Copyright © by Torsten Hofmann V 2.0
+  *
+  * PDF Addon für LMO 4 is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  *
+  * PDF Addon für LMO 4 is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with PDF Addon für LMO 4.  If not, see <http://www.gnu.org/licenses/>.
   *
   * REMOVING OR CHANGING THE COPYRIGHT NOTICES IS NOT ALLOWED!
-..*
-..* Diese Datei ist Teil des PDF Addon für LMO 4.
-..*
-..* Pdf Addon für LMO 4 ist Freie Software: Sie können es unter den Bedingungen
-..* der GNU General Public License, wie von der Free Software Foundation,
-..* Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren
-..* veröffentlichten Version, weiterverbreiten und/oder modifizieren.
-..*
-..* Pdf Addon für LMO 4 wird in der Hoffnung, dass es nützlich sein wird, aber
-..* OHNE JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
-..* Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
-..* Siehe die GNU General Public License für weitere Details.
-..*
-..* Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
-..* Pdf Addon für LMO 4 erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+  *
+  * Diese Datei ist Teil des PDF Addon für LMO 4.
+  *
+  * PDF Addon für LMO 4 ist Freie Software: Sie können es unter den Bedingungen
+  * der GNU General Public License, wie von der Free Software Foundation,
+  * Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren
+  * veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+  *
+  * PDF Addon für LMO 4 wird in der Hoffnung, dass es nützlich sein wird, aber
+  * OHNE JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
+  * Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+  * Siehe die GNU General Public License für weitere Details.
+  *
+  * Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+  * PDF Addon für LMO 4 erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
   *
   * DAS ENTFERNEN ODER DIE ÄNDERUNG DER COPYRIGHT-HINWEISE IST NICHT ERLAUBT!
-**/
+  */
 
 require_once(dirname(__FILE__).'/../../init.php');
 require_once(PATH_TO_ADDONDIR."/pdf/ini.php");
@@ -56,11 +56,11 @@ $pdf->tempPath=PATH_TO_LMO.'/output';
 $pdf->saveState();
 $pdf->openHere('Fit');
 if ($lmo_show_pdfimg==1) {
-  $pdf->ezImage($pdfimg, -35, 100, 'none', 'center',0,0);
+  $pdf->ezImage($pdfimg, -27, 100, 'none', 'center');
 }
 $pdf->ezSetMargins(35,35,50,50);  //(top,bottom,left,right)
 $pdf->selectFont(PATH_TO_ADDONDIR.'/classlib/classes/pdf/fonts/'.$pdf_PDF_font);
-$pdf->addText($Total_Width-170,$Total_Height-15,10,strftime ("%d.%m.%Y - %H:%M")." ".$text['pdf'][103]);
+$pdf->addText($Total_Width-170,$Total_Height-15,10, date("d.m.Y - H:i")." ".$text['pdf'][103]);
 $pdf->addText(50,$Total_Height-30,15,"\n<b>PDF - ".$text['pdf'][232]."</b>");
 if ($lmo_show_rectangle==1) {
   $pdf->setColor($RectangleColorRed,$RectangleColorGreen,$RectangleColorBlue);

@@ -1,46 +1,46 @@
 <?php
-/** This file is part of Pdf Addon for LMO 4.
-..* Copyright (C) 2017 by Dietmar Kersting
-..*
-..* MINITABLE Addon for LigaManager Online (pdf-tabelle.php and pdf-spielplan.php)
-..* Copyright (C) 2003 by Tim Schumacher
-..* timme@uni.de /
-..*
-..* Pdf Addon for LMO 4 für Spielplan (pdf-spielplan.php)
-..* Copyright (C)  by Torsten Hofmann V 2.0
-..*
-..* Pdf Addon für LMO 4 is free software: you can redistribute it and/or modify
-..* it under the terms of the GNU General Public License as published by
-..* the Free Software Foundation, either version 3 of the License, or
-..* (at your option) any later version.
-..*
-..* Pdf Addon für LMO 4 is distributed in the hope that it will be useful,
-..* but WITHOUT ANY WARRANTY; without even the implied warranty of
-..* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-..* GNU General Public License for more details.
-..*
-..* You should have received a copy of the GNU General Public License
-..* along with Pdf Addon für LMO 4.  If not, see <http://www.gnu.org/licenses/>.
+/** This file is part of PDF Addon for LMO 4.
+  * Copyright © 2017 by Dietmar Kersting
+  *
+  * MINITABLE Addon for LigaManager Online (pdf-tabelle.php and pdf-spielplan.php)
+  * Copyright © 2003 by Tim Schumacher
+  * timme@uni.de /
+  *
+  * PDF Addon for LMO 4 für Spielplan (pdf-spielplan.php)
+  * Copyright © by Torsten Hofmann V 2.0
+  *
+  * PDF Addon für LMO 4 is free software: you can redistribute it and/or modify
+  * it under the terms of the GNU General Public License as published by
+  * the Free Software Foundation, either version 3 of the License, or
+  * (at your option) any later version.
+  *
+  * PDF Addon für LMO 4 is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  * GNU General Public License for more details.
+  *
+  * You should have received a copy of the GNU General Public License
+  * along with PDF Addon für LMO 4.  If not, see <http://www.gnu.org/licenses/>.
   *
   * REMOVING OR CHANGING THE COPYRIGHT NOTICES IS NOT ALLOWED!
-..*
-..* Diese Datei ist Teil des PDF Addon für LMO 4.
-..*
-..* Pdf Addon für LMO 4 ist Freie Software: Sie können es unter den Bedingungen
-..* der GNU General Public License, wie von der Free Software Foundation,
-..* Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren
-..* veröffentlichten Version, weiterverbreiten und/oder modifizieren.
-..*
-..* Pdf Addon für LMO 4 wird in der Hoffnung, dass es nützlich sein wird, aber
-..* OHNE JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
-..* Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
-..* Siehe die GNU General Public License für weitere Details.
-..*
-..* Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
-..* Pdf Addon für LMO 4 erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+  *
+  * Diese Datei ist Teil des PDF Addon für LMO 4.
+  *
+  * PDF Addon für LMO 4 ist Freie Software: Sie können es unter den Bedingungen
+  * der GNU General Public License, wie von der Free Software Foundation,
+  * Version 3 der Lizenz oder (nach Ihrer Wahl) jeder späteren
+  * veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+  *
+  * PDF Addon für LMO 4 wird in der Hoffnung, dass es nützlich sein wird, aber
+  * OHNE JEDE GEWÄHRLEISTUNG, bereitgestellt; sogar ohne die implizite
+  * Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+  * Siehe die GNU General Public License für weitere Details.
+  *
+  * Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+  * PDF Addon für LMO 4 erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
   *
   * DAS ENTFERNEN ODER DIE ÄNDERUNG DER COPYRIGHT-HINWEISE IST NICHT ERLAUBT!
-**/
+  */
 
 require_once(PATH_TO_LMO."/lmo-admintest.php");
 isset($_REQUEST['show'])?$show=$_REQUEST['show']:$show=0;
@@ -125,7 +125,7 @@ if(isset($_POST['save']) && $_POST['save']==1){
       <table class="lmoMenu" cellspacing="0" cellpadding="0" border="0">
         <tr><td align="right"><?php if ($show==0) {echo $text['pdf'][203]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=0";?>"><?php echo $text['pdf'][203];?></a><?php }?></td></tr>
         <tr><td align="right"><?php if ($show==1) {echo $text['pdf'][15]." ".$text['pdf'][204]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=1";?>"><?php echo $text['pdf'][15]." ".$text['pdf'][204];?></a><?php }?></td></tr>
-        <tr><td align="right"><?php if ($show==2) {echo $text['pdf'][15]." ".$text['pdf'][205]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=2";?>"><?php echo $text['pdf'][15]." ".$text['pdf'][205];?></a><?php }?></td></tr>
+        <tr><td align="right"><?php if ($show==2) {echo $text['pdf'][15]." ".$text['pdf'][107]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=2";?>"><?php echo $text['pdf'][15]." ".$text['pdf'][107];?></a><?php }?></td></tr>
         <tr><td align="right"><?php if ($show==3) {echo $text['pdf'][206]?><?php }else{?><a href="<?php echo $_SERVER['PHP_SELF']."?action=admin&amp;todo=pdfoptions&amp;show=3";?>"><?php echo $text['pdf'][206];?></a><?php }?></td></tr>
         <tr><td align="right"><a target="_blank" href='<?php echo URL_TO_LMO."/help/Deutsch/addons/readme.php' title='".$text['pdf'][199]."'>".$text[312] ?></td></tr>
       </table>
@@ -138,6 +138,25 @@ if(isset($_POST['save']) && $_POST['save']==1){
         <input type="hidden" name="show" value="<?php echo $show?>">
         <table class="lmoInner" cellspacing="0" cellpadding="0" border="0">
 <?php if ($show==0) {?>
+          <script type="text/javascript">
+          $(function () {
+            var fileName = "<?php echo URL_TO_LMO?>/addon/pdf/lmo-color_help.php";
+            $("#ColorHelpShow").click(function () {
+              $("#dialog").dialog({
+                modal: true,
+                title: "<?php echo $text['pdf'][232];?>",
+                width: 850,
+                height: 600,
+                open: function () {
+                  var object = "<object data=\"{FileName}\" type=\"application/pdf\" width=\"100%\" height=\"600px\">";
+                  object += "If you are unable to view file, you can download from <a href = \"{FileName}\">here</a>";
+                  object += " or download <a target = \"_blank\" href = \"https://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
+                  object += "</object>"; object = object.replace(/{FileName}/g, fileName); $("#dialog").html(object);
+                }
+              });
+            });
+          });
+          </script>
           <tr>
             <th colspan="3"><?php echo $text['pdf'][203] ?></th>
           </tr>
@@ -159,22 +178,8 @@ if(isset($_POST['save']) && $_POST['save']==1){
           <tr>
             <td class="nobr" align="right"><?php echo $text['pdf'][232];?></td>
             <td>
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Example_Matchday"><?php echo $text['pdf'][234]?></button>
-              <!-- Modal -->
-              <div id="myModal_Example_Matchday" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-xl">
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <embed src="<?php echo URL_TO_LMO?>/addon/pdf/lmo-color_help.php" frameborder="0" width="100%" height="500px">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <input id="ColorHelpShow" type="button" class="custom-btn btn-pdf1" value="<?php echo $text['pdf'][234]?>" />
+              <div id="dialog" style="display: none"></div>
             </td>
           </tr>
           <tr>
@@ -246,6 +251,40 @@ if(isset($_POST['save']) && $_POST['save']==1){
             <td class="nobr" colspan="2"><input class="lmo-formular-input" type="text" name="xpdf_lmo_pdf_Distance_Lower_Edge" size="5" maxlength="10" value="<?php echo $pdf_lmo_pdf_Distance_Lower_Edge;?>" onChange="dolmoedit()"></td>
           </tr>
 <?php } elseif ($show==1) {?>
+          <script type="text/javascript">
+          $(function () {
+            $("#ExampleMatchdayShow").click(function () {
+              var fileName_matchday = "<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_matchdayformat.php";
+              $("#dialog").dialog({
+                modal: true,
+                title: "<?php echo $text['pdf'][273];?>",
+                width: 850,
+                height: 600,
+                open: function () {
+                  var object = "<object data=\"{FileName}\" type=\"application/pdf\" width=\"100%\" height=\"600px\">";
+                  object += "If you are unable to view file, you can download from <a href = \"{FileName}\">here</a>";
+                  object += " or download <a target = \"_blank\" href = \"https://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
+                  object += "</object>"; object = object.replace(/{FileName}/g, fileName_matchday); $("#dialog").html(object);
+                }
+              });
+            });
+            $("#ExampleTableShow").click(function () {
+              var fileName_table = "<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_tableformat.php";
+              $("#dialog").dialog({
+                modal: true,
+                title: "<?php echo $text['pdf'][271];?>",
+                width: 850,
+                height: 600,
+                open: function () {
+                  var object = "<object data=\"{FileName}\" type=\"application/pdf\" width=\"100%\" height=\"600px\">";
+                  object += "If you are unable to view file, you can download from <a href = \"{FileName}\">here</a>";
+                  object += " or download <a target = \"_blank\" href = \"https://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
+                  object += "</object>"; object = object.replace(/{FileName}/g, fileName_table); $("#dialog").html(object);
+                }
+              });
+            });
+          });
+          </script>
           <tr>
             <th colspan="3"><?php echo $text['pdf'][15]." ".$text['pdf'][204] ?></th>
           </tr>
@@ -319,28 +358,14 @@ if(isset($_POST['save']) && $_POST['save']==1){
           <tr>
             <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][284]." ".$text['pdf'][273]?>"><?php echo $text['pdf'][283].": ".$text['pdf'][279];?></acronym></td>
             <td class="nobr" colspan="2">
-              <select class="lmo-formular-input" type="text" title="<?php echo $text['pdf'][230];?>: <?php echo $text['pdf'][231];?>" name="xpdf_table_md_gridlines" size="1" maxlength="2" value="<?php echo $pdf_table_md_gridlines;?>" onChange="dolmoedit()"><?php for($number_gridline=0; $number_gridline <= 31; $number_gridline=$number_gridline+1) { ?><option value="<?php echo $number_gridline; ?>"<?php if ($pdf_table_md_gridlines==$number_gridline) echo " selected";?>><?php echo $number_gridline; ?></option><?php } ?></select>
+              <select class="lmo-formular-input" type="text" title="<?php echo $text['pdf'][281];?>: <?php echo $text['pdf'][291];?>" name="xpdf_table_md_gridlines" size="1" maxlength="2" value="<?php echo $pdf_table_md_gridlines;?>" onChange="dolmoedit()"><?php for($number_gridline=0; $number_gridline <= 31; $number_gridline=$number_gridline+1) { ?><option value="<?php echo $number_gridline; ?>"<?php if ($pdf_table_md_gridlines==$number_gridline) echo " selected";?>><?php echo $number_gridline; ?></option><?php } ?></select>
             </td>
           </tr>
           <tr>
             <td class="nobr" align="right"><?php echo $text['pdf'][281]." ".$text['pdf'][283];?></td>
             <td>
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Example_Matchday"><?php echo $text['pdf'][282]?></button>
-              <!-- Modal -->
-              <div id="myModal_Example_Matchday" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-xl">
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <embed src="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_matchdayformat.php" frameborder="0" width="100%" height="500px">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <input id="ExampleMatchdayShow" type="button" class="custom-btn btn-pdf1" value="<?php echo $text['pdf'][282]?>" />
+              <div id="dialog" style="display: none"></div>
             </td>
           </tr>
           <tr>
@@ -380,28 +405,14 @@ if(isset($_POST['save']) && $_POST['save']==1){
           <tr>
             <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][284]." ".$text['pdf'][271]?>"><?php echo $text['pdf'][283].": ".$text['pdf'][279];?></acronym></td>
             <td class="nobr" colspan="2">
-              <select class="lmo-formular-input" type="text" title="<?php echo $text['pdf'][230];?>: <?php echo $text['pdf'][231];?>" name="xpdf_table_tb_gridlines" size="1" maxlength="2" value="<?php echo $pdf_table_tb_gridlines;?>" onChange="dolmoedit()"><?php for($number_gridline=0; $number_gridline <= 31; $number_gridline=$number_gridline+1) { ?><option value="<?php echo $number_gridline; ?>"<?php if ($pdf_table_tb_gridlines==$number_gridline) echo " selected";?>><?php echo $number_gridline; ?></option><?php } ?></select>
+              <select class="lmo-formular-input" type="text" title="<?php echo $text['pdf'][281];?>: <?php echo $text['pdf'][291];?>" name="xpdf_table_tb_gridlines" size="1" maxlength="2" value="<?php echo $pdf_table_tb_gridlines;?>" onChange="dolmoedit()"><?php for($number_gridline=0; $number_gridline <= 31; $number_gridline=$number_gridline+1) { ?><option value="<?php echo $number_gridline; ?>"<?php if ($pdf_table_tb_gridlines==$number_gridline) echo " selected";?>><?php echo $number_gridline; ?></option><?php } ?></select>
             </td>
           </tr>
           <tr>
             <td class="nobr" align="right"><?php echo $text['pdf'][281]." ".$text['pdf'][283];?></td>
             <td>
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Example_Table"><?php echo $text['pdf'][282]?></button>
-              <!-- Modal -->
-              <div id="myModal_Example_Table" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-xl">
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <embed src="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_tableformat.php" frameborder="0" width="100%" height="500px">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <input id="ExampleTableShow" type="button" class="custom-btn btn-pdf1" value="<?php echo $text['pdf'][282]?>" />
+              <div id="dialog" style="display: none"></div>
             </td>
           </tr>
           <tr>
@@ -414,8 +425,27 @@ if(isset($_POST['save']) && $_POST['save']==1){
             <td width="20">&nbsp;</td>
           </tr>
 <?php } elseif ($show==2) {?>
+          <script type="text/javascript">
+          $(function () {
+            $("#ExampleMatchdayShow").click(function () {
+              var fileName_matchday = "<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_matchdayformat.php";
+              $("#dialog").dialog({
+                modal: true,
+                title: "<?php echo $text['pdf'][273];?>",
+                width: 850,
+                height: 600,
+                open: function () {
+                  var object = "<object data=\"{FileName}\" type=\"application/pdf\" width=\"100%\" height=\"600px\">";
+                  object += "If you are unable to view file, you can download from <a href = \"{FileName}\">here</a>";
+                  object += " or download <a target = \"_blank\" href = \"https://get.adobe.com/reader/\">Adobe PDF Reader</a> to view the file.";
+                  object += "</object>"; object = object.replace(/{FileName}/g, fileName_matchday); $("#dialog").html(object);
+                }
+              });
+            });
+          });
+          </script>
           <tr>
-            <th colspan="3"><?php echo $text['pdf'][15]." ".$text['pdf'][205] ?></th>
+            <th colspan="3"><?php echo $text['pdf'][15]." ".$text['pdf'][107] ?></th>
           </tr>
           <tr>
             <td class="nobr" align="right"><acronym title="<?php echo $text[438]?>"><?php echo $text[437].": ".$text[537]." ".$text[16];?></acronym></td>
@@ -452,28 +482,14 @@ if(isset($_POST['save']) && $_POST['save']==1){
           <tr>
             <td class="nobr" align="right"><acronym title="<?php echo $text['pdf'][284]." ".$text['pdf'][104]?>"><?php echo $text['pdf'][283].": ".$text['pdf'][279];?></acronym></td>
             <td class="nobr" colspan="2">
-              <select class="lmo-formular-input" type="text" title="<?php echo $text['pdf'][230];?>: <?php echo $text['pdf'][231];?>" name="xpdf_table_gd_gridlines" size="1" maxlength="2" value="<?php echo $pdf_table_gd_gridlines;?>" onChange="dolmoedit()"><?php for($number_gridline=0; $number_gridline <= 31; $number_gridline=$number_gridline+1) { ?><option value="<?php echo $number_gridline; ?>"<?php if ($pdf_table_gd_gridlines==$number_gridline) echo " selected";?>><?php echo $number_gridline; ?></option><?php } ?></select>
+              <select class="lmo-formular-input" type="text" title="<?php echo $text['pdf'][281];?>: <?php echo $text['pdf'][291];?>" name="xpdf_table_gd_gridlines" size="1" maxlength="2" value="<?php echo $pdf_table_gd_gridlines;?>" onChange="dolmoedit()"><?php for($number_gridline=0; $number_gridline <= 31; $number_gridline=$number_gridline+1) { ?><option value="<?php echo $number_gridline; ?>"<?php if ($pdf_table_gd_gridlines==$number_gridline) echo " selected";?>><?php echo $number_gridline; ?></option><?php } ?></select>
             </td>
           </tr>
           <tr>
             <td class="nobr" align="right"><?php echo $text['pdf'][281]." ".$text['pdf'][283];?></td>
             <td>
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal_Example_Matchday"><?php echo $text['pdf'][282]?></button>
-              <!-- Modal -->
-              <div id="myModal_Example_Matchday" class="modal fade" role="dialog">
-                <div class="modal-dialog modal-xl">
-                  <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-body">
-                      <embed src="<?php echo URL_TO_LMO?>/addon/pdf/pdf-select_matchdayformat.php" frameborder="0" width="100%" height="500px">
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal"><?php echo $text['pdf'][290]?></button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <input id="ExampleMatchdayShow" type="button" class="custom-btn btn-pdf1" value="<?php echo $text['pdf'][282]?>" />
+              <div id="dialog" style="display: none"></div>
             </td>
           </tr>
           <tr>
@@ -633,7 +649,7 @@ if(isset($_POST['save']) && $_POST['save']==1){
             <td width="20" colspan="3">&nbsp;</td>
           </tr><?php }?>
           <tr>
-            <td colspan="3" align="center"><input title="<?php echo $text[114] ?>" class="lmo-formular-button" type="submit" name="best" value="<?php echo $text[188]?>"></td>
+            <td colspan="3" align="center"><input title="<?php echo $text[114] ?>" class="custom-lmo lmo-formular-button" type="submit" name="best" value="<?php echo $text[188]?>"></td>
           </tr>
         </table>
       </form>
