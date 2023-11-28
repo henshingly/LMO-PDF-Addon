@@ -1,4 +1,4 @@
-[<img src="https://www.vest-sport.de/forum_files/addon.svg">](https://www.vest-sport.de/forum)
+[<img src="https://www.vest-sport.de/forum_files/addon_pdf.svg">](https://www.vest-sport.de/forum)
 # PDF-Addons
 
 Dieses PDF Addon Paket enthält den offiziellen GIT-Klon der R&OS PHP PDF-Klasse und 3 PDF Addons verschiedener Autoren
