@@ -11,13 +11,17 @@ Dieses PDF Addon Paket enthält den offiziellen GIT-Klon der R&OS PHP PDF-Klasse
 
 Dieses Paket wurde von mir neu geschnürt um diverse festgestellte Bugs zu entfernen und die Möglichkeit der Sprachauswahl aller Dateien zu gewährleisten.
 Ich muss außerdem zugeben das ich nicht den originalen <a href="https://www.liga-manager-online.de/homepage/homepage/download/">LMO 4.0.2a</a>,
-Außerdem wurde noch die Verwendbarkeit der Addons unter PHP7 getestet. Bei mir lief es auch unter PHP Version 7.3.3.
-von der Webseite www.liga-manager-online.de, genommen habe. Sondern den LMO mit PHP7 Unterstützung von meiner Webseite.
-Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf die <u>LMO_PHP7</u> Version.
+von der Webseite www.liga-manager-online.de, genommen habe. Sondern den LMO mit PHP8 Unterstützung aus meinem <a target="_blank" href="https://github.com/henshingly/lmo_php8">Repositories</a>.
+Außerdem wurde noch die Verwendbarkeit der Addons unter PHP8 getestet. Bei mir lief es auch unter PHP Version 8.2.4.
+Also alle hier beschriebenen Einstellungen und Codeänderungen beziehen sich auf die <u>LMO_PHP8</u> Version 4.1.3 oder höher.
 
 
 Changelog
 
+
+3.2.0
+  30.11.2023
+  - Dateiupdate der R&OS Klasse von 0.12.49 -> 0.12.67
 
 3.1.0
   30.03.2021
